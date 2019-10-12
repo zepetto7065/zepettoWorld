@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.ca.MemberMapper">
+
+	<resultMap type="kr.co.domain.MemberVO" id="memberResult">
+		<result column="BNO" property="bno" />
+		<result column="SSO_ID" property="ssoId" />
+		<result column="PASSWORD" property="passWord" />
+		<result column="USER_NAME" property="userName" />
+		<result column="BIRTY_YEAR" property="birthYear" />
+		<result column="BIRTY_MONTH" property="birthMonth" />
+		<result column="BIRTY_DATE" property="birthDate" />
+		<result column="USER_EMAIL" property="userEmail" />
+		<result column="PHONE_NUM" property="phoneNum" />
+		<result column="JOIN_DATE" property="joinDate"	/>
+		<result column="DELETE_DATE" property="deleteDate"	/>
+		<result column="ENABLED" property="enabled"	/>		
+		<result column="AUTHORITY" property="authority"	/>				
+	</resultMap>
+
+
+	<select id="getTotalCount" resultType="Integer">
+		SELECT COUNT(BNO) FROM
+		TBL_MEMBER
+	</select>
+
+	<insert id="join">
+		INSERT INTO TBL_MEMBER (BNO, SSO_ID, PASSWORD,
+		USER_NAME,USER_BIRTH,USER_GENDER,USER_EMAIL,PHONE_NUM,ENABLE)
+		VALUES (#{bno},#{ssoId}, #{passWord}, #{userName},
+		#{userBirth},#{userGender},#{userEmail},#{phoneNum},'0')
+	</insert>
+
+	<select id="checkId" resultType="String">
+		SELECT SSO_ID FROM TBL_MEMBER WHERE SSO_ID = #{ssoId}
+	</select>
+	
+	<select id="checkEmail" resultType="String">
+		SELECT USER_EMAIL FROM TBL_MEMBER WHERE USER_EMAIL = #{email}
+	</select>
+	
+	<select id="loginSuc" resultMap="memberResult">
+		SELECT * FROM TBL_MEMBER WHERE SSO_ID = #{ssoId} AND PASSWORD = #{passWord}
+	</select>
+	
+</mapper>	
