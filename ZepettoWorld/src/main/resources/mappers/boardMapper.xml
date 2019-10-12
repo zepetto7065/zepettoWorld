@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.ca.BoardMapper">
+
+	<resultMap type="kr.co.domain.BoardVO" id="boardResult">
+		<result column="BNO" property="bno" />
+		<result column="TITLE" property="title" />
+		<result column="SSO_ID" property="ssoId" />
+		<result column="USER_NAME" property="userName" />
+		<result column="REG_DATE" property="regDate" />
+		<result column="UPDATE_DATE" property="updateDate" />
+		<result column="CONTENT" property="content" />
+		<result column="VIEW_CNT" property="viewCnt" />
+		<result column="DELETE_YN" property="deleteYn" />		
+		<result column="REPLY_CNT" property="replyCnt" />			
+	</resultMap>
+
+	<select id="listAll" resultMap="boardResult">
+		SELECT * FROM TBL_BOARD WHERE DELETE_YN = 'N' ORDER BY
+		BNO DESC 
+	</select>
+
+	<select id="listCriteria" resultMap="boardResult">
+	<![CDATA[ 
+		SELECT
+		 BNO,
+		 TITLE,
+		 SSO_ID,
+		 USER_NAME,
+		 REG_DATE,
+		 UPDATE_DATE,
+		 CONTENT,
+		 VIEW_CNT,
+		 DELETE_YN,
+		 REPLY_CNT
+		 FROM TBL_BOARD 
+		 WHERE BNO>0
+		]]>
+				<include refid="search" />
+		<![CDATA[
+		 ORDER by bno desc 
+		 LIMIT #{pageStart},#{perPageNum}
+		]]>
+	</select>
+	
+	<select id="read" parameterType="int" resultMap="boardResult">
+		
+		SELECT * FROM
+		TBL_BOARD WHERE BNO = #{BNO}
+	</select>
+
+	<select id="getTotalCount" resultType="Integer">
+		<![CDATA[
+		SELECT COUNT(BNO) FROM
+		TBL_BOARD
+		WHERE BNO>0
+		]]>
+		<include refid="search" />
+	</select>
+
+	<insert id="create">
+		INSERT INTO TBL_BOARD (BNO, TITLE, CONTENT, SSO_ID, DELETE_YN)
+		VALUES (#{bno}, #{title}, #{content}, #{ssoId},'N')
+	</insert>
+
+	<update id="update">
+		UPDATE TBL_BOARD SET TITLE=#{title},
+		CONTENT=#{content}, USER_NAME=#{userName}
+		WHERE
+		BNO=#{bno}
+	</update>
+
+	<update id="delete" parameterType="int">
+		UPDATE TBL_BOARD SET DELETE_YN='Y' WHERE BNO = #{bno}
+	</update>
+
+	<sql id="search">
+		<if test="searchType!=null">
+			<if test="searchType=='t'.toString()">
+				AND TITLE LIKE CONCAT('%',#{keyword},'%') 
+			</if>
+			<if test="searchType=='c'.toString()">
+				AND CONTENT LIKE CONCAT('%',#{keyword},'%')
+			</if>
+			<if test="searchType=='w'.toString()">
+				AND SSO_ID LIKE CONCAT('%',#{keyword},'%')
+			</if>
+			<if test="searchType=='tc'.toString()">
+				AND (
+					 TITLE LIKE CONCAT('%',#{keyword},'%')
+					 OR SSO_ID LIKE CONCAT('%',#{keyword},'%')
+				)
+			</if>
+			<if test="searchType=='cw'.toString()">
+				AND (
+					 CONTENT LIKE CONCAT('%',#{keyword},'%')
+					 OR SSO_ID LIKE CONCAT('%',#{keyword},'%')
+				)
+			</if>
+			<if test="searchType=='tcw'.toString()">
+				AND (
+					 TITLE LIKE CONCAT('%',#{keyword},'%')
+					 OR SSO_ID LIKE CONCAT('%',#{keyword},'%')
+					 OR CONTETN LIKE CONCAT('%',#{keyword},'%')
+				)			
+			</if>
+		</if>
+	</sql>
+	
+	<select id="listSearch" resultMap="boardResult">
+	<![CDATA[ 	
+		SELECT * FROM (
+			SELECT ROWNUM RNUM, BNO, TITLE, CONTENT, SSO_ID, USER_NAME, 
+				REG_DATE, UPDATE_DATE, VIEW_CNT FROM
+					(SELECT * FROM TBL_BOARD ]]> 
+				<include refid="search"></include> 
+				<![CDATA[ 	
+					ORDER BY BNO DESC))
+		WHERE RNUM >=#{startRow} AND RNUM <=#{endRow}
+				]]> 
+	</select>
+	
+	<select id="listSearchCount" resultType="Integer">
+		SELECT COUNT(*) FROM TBL_BOARD <include refid="search"></include>
+	</select>
+	
+	<update id="updateReplyCnt">
+		UPDATE TBL_BOARD
+		SET REPLY_CNT = REPLY_CNT + #{amount}
+		WHERE BNO = #{bno}
+	</update>
+	
+	<update id="updateViewCnt">
+		UPDATE TBL_BOARD
+		SET VIEW_CNT = VIEW_CNT + 1
+		WHERE BNO = #{bno}
+	</update>
+</mapper>	

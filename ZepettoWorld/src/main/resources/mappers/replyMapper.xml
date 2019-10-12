@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.ca.ReplyMapper">
+
+	<resultMap type="kr.co.domain.ReplyVO" id="replyResult">
+		<result column="BNO" property="bno" />
+		<result column="REPLY_NO" property="replyNo" />
+		<result column="REPLY_TEXT" property="replyText" />
+		<result column="REPLY_WRITER" property="replyWriter" />
+		<result column="REG_DATE" property="regDate" />
+		<result column="UPDATE_DATE" property="updateDate" />
+	</resultMap>
+	
+	<resultMap type="kr.co.domain.BoardVO" id="boardResult">
+		<result column="BNO" property="bno" />
+		<result column="TITLE" property="title" />
+		<result column="SSO_ID" property="ssoId" />
+		<result column="USER_NAME" property="userName" />
+		<result column="REG_DATE" property="regdate" />
+		<result column="UPDATE_DATE" property="updatedate" />
+		<result column="CONTENT" property="content" />
+		<result column="VIEW_CNT" property="viewcnt" />
+		<result column="DELETE_YN" property="deleteYn" />		
+	</resultMap>
+	
+	<select id="list" resultMap="replyResult">
+		SELECT
+		*
+		FROM TBL_REPLY
+		WHERE BNO =#{bno}
+		ORDER BY reply_no DESC
+	</select>
+
+	<insert id="create">
+		INSERT INTO TBL_REPLY(
+			BNO
+			, REPLY_TEXT
+			, REPLY_WRITER
+		) VALUES (
+			#{bno}
+			,#{replyText}
+			,#{replyWriter}
+		)
+				
+	</insert>
+	
+	<update id="update">
+		UPDATE TBL_REPLY
+		SET
+			REPLY_TEXT = #{replyText}
+			, UPDATE_DATE = NOW()
+		WHERE REPLY_NO =#{replyNo}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM TBL_REPLY
+		WHERE REPLY_NO = #{replyNo}
+	</delete>
+	
+	<select id="listPaging" resultMap="replyResult">
+		SELECT 
+		*
+		FROM TBL_REPLY
+		WHERE BNO = #{bno}
+		ORDER BY REPLY_NO DESC
+		LIMIT #{criteria.pageStart}, #{criteria.perPageNum}
+	</select>
+	
+	<select id="countReplies" resultType="int">
+		SELECT
+			COUNT(bno)
+		FROM TBL_REPLY
+		WHERE BNO = #{bno}	
+	</select>
+
+	<select id="getBno" resultType="int">
+		SELECT
+			BNO
+		FROM TBL_REPLY
+		WHERE REPLY_NO = #{replyNo}
+	</select>
+</mapper>	
