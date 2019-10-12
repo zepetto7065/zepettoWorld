@@ -65,7 +65,7 @@
 													</a>
 													<span class="badge bn-teal"><i class="fa fa-comment-o"></i> + ${board.replyCnt}</span>
 												</td>
-												<td style="text-align: center">${board.userName}(${board.ssoId})</td>
+												<td style="text-align: center">${board.ssoId}</td>
 												<td style="text-align: center">${board.regDate}</td>
 												<td style="text-align: center">${board.viewCnt}</td>
 											</tr>

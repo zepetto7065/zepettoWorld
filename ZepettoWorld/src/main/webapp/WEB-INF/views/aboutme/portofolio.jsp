@@ -201,7 +201,7 @@
 											<li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">Date:</strong> 2019.05 - 현재ing</li>
 											<li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">Skills:</strong> <a href="#" class="badge badge-dark badge-sm badge-pill px-2 py-1 ml-1">SPRING</a><a href="#" class="badge badge-dark badge-sm badge-pill px-2 py-1 ml-1">JAVA</a><a href="#" class="badge badge-dark badge-sm badge-pill px-2 py-1 ml-1">MySQL</a>
 											<a href="#" class="badge badge-dark badge-sm badge-pill px-2 py-1 ml-1">jQuery</a><a href="#" class="badge badge-dark badge-sm badge-pill px-2 py-1 ml-1">Tomcat</a></li>
-											<li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">Github Address: <a href="https://github.com/zepetto7065/ZepettoWorld" class="badge badge-dark badge-sm badge-pill px-2 py-1 ml-1">https://github.com/zepetto7065/ZepettoWorld</a></strong> </li>
+											<li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">Github Address: <a href="https://github.com/zepetto7065/ZepettoWorld2" class="badge badge-dark badge-sm badge-pill px-2 py-1 ml-1">https://github.com/zepetto7065/ZepettoWorld2</a></strong> </li>
 										</ul>
 
 									</div>

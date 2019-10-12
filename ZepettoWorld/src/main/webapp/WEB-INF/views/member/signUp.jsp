@@ -44,45 +44,35 @@
 					return false;
 				}
 	
-				if (!form.birthYear.value) {
-					alert("년도를 입력하세요.");
+				if (!form.birthDay.value) {
+					alert("생년월일을 입력하세요.");
 					return false;
 				}
-	
-				if (isNaN(form.birthYear.value)) {
-					alert("년도는 숫자만 입력가능합니다.");
+				
+				if (!form.stateSi.value || !form.stateGu.value || !form.stateDong.value || !form.stateDetail.value) {
+					alert("주소를 입력하세요.");
 					return false;
 				}
-	
-				if (form.birthMonth.value == "00") {
-					alert("월을 선택하세요.");
-					return false;
-				}
-	
-				if (!form.birthDate.value) {
-					alert("날짜를 입력하세요.");
-					return false;
-				}
-	
-				if (isNaN(form.birthDate.value)) {
-					alert("날짜는 숫자만 입력가능합니다.");
-					return false;
-				}
-	
+
 				if (!form.userEmail.value) {
 					alert("메일 주소를 입력하세요.");
 					return false;
 				}
 	
-				if (form.emailDuplication.value != "emailCheck") {
+/* 				if (form.emailDuplication.value != "emailCheck") {
 					alert("이메일 중복체크를 해주세요.");
 					return false;
-				}
+				} */
 				
 				if (!form.phoneNum.value) {
 					alert("전화번호를 입력하세요.");
 					return false;
 				}
+				
+				if (isNaN(form.birthDay.value)) {
+					alert("생년월일을 6자리로 입력하세요. (ex) 1992년 4월 17일 -> 920417");
+					return false;
+				} 
 	
 				if (isNaN(form.phoneNum.value)) {
 					alert("전화번호는 - 제외한 숫자만 입력해주세요.");
@@ -181,15 +171,15 @@
 				var password = document.userInfo.passWord.value;
 				var passWordCheck = document.userInfo.passWordCheck.value;
 				
-				if(password==passWordCheck){
+				if(password==passWordCheck ){
 					document.getElementById("checkPWMsg").innerHTML = "비밀번호가 일치합니다."
-				}else{
+				} else{
 					document.getElementById("checkPWMsg").innerHTML = "비밀번호가 불일치합니다."
 				}
 			}
 	
 	</script>   
-	<div class="container">
+<!-- 	<div class="container">
 		<div class="row" style="margin:auto;width:300px;">
 				<form onsubmit="return checkValue()" action="/member/join" method="post" name="userInfo">
 					<div class="form-group">
@@ -205,14 +195,14 @@
 					
 					<div class="form-group">
 						<label for="passWord">비밀번호</label>
-						<!-- <input name="title" id="title"> -->
+						<input name="title" id="title">
 						<input type="password" required="required" class="form-control"
 							name="passWord" id="passWord" onkeyup="passwordCheck()">
 					</div>
 
 					<div class="form-group">
 						<label for="passWordCheck">비밀번호 재확인</label>
-						<!-- <input name="title" id="title"> -->
+						<input name="title" id="title">
 						<input type="password" required="required" class="form-control"
 							name="passWordCheck" id="passWordCheck" onkeyup="passwordCheck()">
 					</div>
@@ -221,13 +211,13 @@
 					<br>
 					<div class="form-group">
 						<label for="userName">이름</label>
-						<!-- <input name="title" id="title"> -->
+						<input name="title" id="title">
 						<input required="required" class="form-control" name="userName"
 							id="userName">
 					</div>
 					<div class="form-group" id="birthRap">
 						<label for="birthDate">생년월일</label>
-						<!-- <input name="userName" id="userName"> -->
+						<input name="userName" id="userName">
 						<div>
 							<span> <input required="required" class="form-control"
 								name="birthYear" id="birthYear" placeholder="년(4자)">
@@ -264,7 +254,7 @@
 					</div>
 					<div class="form-group">
 						<label for="userEmail">본인 확인 이메일</label>
-						<!-- <input name="title" id="title"> -->
+						<input name="title" id="title">
 						<div style="display:flex">
 						<input required="required" class="form-control" name="userEmail"
 							id="userEmail">
@@ -276,7 +266,7 @@
 					</div>
 					<div class="form-group">
 						<label for="phoneNum">휴대전화</label>
-						<!-- <input name="title" id="title"> -->
+						<input name="title" id="title">
 						<input required="required" class="form-control" name="phoneNum"
 							id="phoneNum">
 					</div>
@@ -287,7 +277,135 @@
 				</form>
 
 		</div>
-	</div>
+	</div> -->
+	
+		<body>
+
+		<div class="body">
+			
+			<div role="main" class="main">
+
+				<section class="page-header page-header-modern page-header-background page-header-background-sm overlay overlay-color-primary overlay-show overlay-op-8 mb-5" style="background-image: url(${pageContext.request.contextPath}/resources/img/page-header/page-header-elements.jpg);">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12 align-self-center p-static order-2 text-center">
+								<h1>SIGN UP</h1>
+
+							</div>
+							<div class="col-md-12 align-self-center order-1">
+								<ul class="breadcrumb breadcrumb-light d-block text-center">
+									<li><a href="#">Home</a></li>
+									<li class="active">SIGN UP</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<div class="container">
+
+					<div class="row">
+						<div class="col-lg-9 order-1 order-lg-2">
+							
+							<div class="overflow-hidden mb-1">
+								<h2 class="font-weight-normal text-7 mb-0">SIGN<strong class="font-weight-extra-bold"> UP</strong></h2>
+							</div>
+							<div class="overflow-hidden mb-4 pb-3">
+								<p class="mb-0">회원 가입 화면입니다. 공란에 적절한 내용을 기입해주세요.</p>
+							</div>
+
+							<form onsubmit="return checkValue()" action="/member/join" method="post" name="userInfo">
+
+							    <div class="form-group row">
+							        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">ID</label>
+							        <div class="col-lg-7">
+							            <input class="form-control" name="ssoId" id="ssoId" onkeydown="inputIdChk()" placeholder="사용하실 ID를 입력해주세요">
+									</div>
+									<div class="col-lg-2">
+										<input type="button" class="btn btn-info" value="중복확인" onclick="openIdChk()">
+										<input type="hidden" name="idDuplication" value="idUncheck">
+									</div>
+							    </div>
+							    <div class="form-group row">
+							        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Password</label>
+							        <div class="col-lg-9">
+							            <input class="form-control" name="passWord" id="passWord" onkeyup="passwordCheck()" placeholder="사용하실 PW를 입력해주세요">
+							        </div>
+							    </div>
+							    <div class="form-group row">
+							        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Confirm password</label>
+							        <div class="col-lg-9">
+							            <input class="form-control" name="passWordCheck" id="passWordCheck" onkeyup="passwordCheck()" placeholder="비밀번호 확인란입니다">
+							        </div>
+							    </div>
+							    <div id="checkPWMsg">
+								</div>
+								<div class="form-group row">
+							        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Name</label>
+							        <div class="col-lg-9">
+							            <input class="form-control" name="userName" id="userName"  placeholder="이름을 입력해주세요">
+							        </div>
+							    </div>
+							    <div class="form-group row">
+							        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Email</label>
+							        <div class="col-lg-9">
+							            <input class="form-control" id="userEmail" name="userEmail"  placeholder="email를 입력해주세요">
+							        </div>
+							    </div>
+							    <div class="form-group row">
+							        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2">Address</label>
+							        <div class="col-lg-3">
+							            <input class="form-control" type="text" id="stateSi" name="stateSi" placeholder="시">
+							        </div>
+							        <div class="col-lg-6">
+							            <input class="form-control" type="text" id="stateGu" name="stateGu" placeholder="구">
+							        </div>
+							    </div>
+							    <div class="form-group row">
+							        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2"></label>
+							        <div class="col-lg-3">
+							            <input class="form-control" type="text" id="stateDong" name="stateDong" placeholder="동">
+							        </div>
+							        <div class="col-lg-6">
+							            <input class="form-control" type="text" id="stateDetail" name="stateDetail" placeholder="상세주소">
+							        </div>
+							    </div>
+							    <div class="form-group row">
+							        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Phone</label>
+							        <div class="col-lg-9">
+							            <input class="form-control" name="phoneNum" id="phoneNum"  placeholder="-없이 입력해주세요">
+							        </div>
+							    </div>
+								<div class="form-group row">
+							        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">BirthDay</label>
+							        <div class="col-lg-9">
+							            <input class="form-control" name="birthDay" id="birthDay"  placeholder="생년월일를 입력해주세요 ex)1992년 4월 17일 -> 920417">
+							        </div>
+							    </div>
+							
+							    <div class="form-group row">
+									<div class="form-group col-lg-9">
+										
+									</div>
+									<div class="form-group col-lg-3">
+										<input type="submit" value="Save" class="btn btn-primary btn-modern float-right" data-loading-text="Loading...">
+									</div>
+							    </div>
+							</form>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+ 
+		</div>
+
+	
+	</body>
+	
+	
 	<script type="text/javascript">
 
 	

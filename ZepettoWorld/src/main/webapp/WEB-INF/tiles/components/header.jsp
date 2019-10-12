@@ -78,12 +78,12 @@
 														</a>
 													</li>
 													<li class="dropdown">
-														<a class="dropdown-item dropdown-toggle" href="/login/login">
+														<a class="dropdown-item dropdown-toggle" href="/member/login">
 															Sign in
 														</a>
 													</li>	
 													<li class="dropdown">
-														<a class="dropdown-item dropdown-toggle" href="/login/login">
+														<a class="dropdown-item dropdown-toggle" href="/member/join">
 															Sign up
 														</a>
 													</li>

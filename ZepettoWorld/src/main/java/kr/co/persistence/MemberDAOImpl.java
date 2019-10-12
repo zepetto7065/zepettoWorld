@@ -16,10 +16,8 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Override
 	public void join(MemberVO vo) {
-		// TODO Auto-generated method stub
-		if(vo.getSsoId()==null) {
-			vo.setSsoId("ADMIN");
-		}
+		// TODO Auto-generated method stub	
+		vo.setUserAddress(); // 주소 셋팅
 		sqlSession.insert(NAMESPACE+".join", vo);
 	}
 	

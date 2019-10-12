@@ -1,76 +1,13 @@
-create table tbl_board(
-bno number(5) primary key,
-title varchar2(100) not null,
-content varchar2(1000) not null,
-writer varchar2(21) not null,
-regdate date default sysdate,
-updatedate date default sysdate,
-viewcnt number(10) default 0
-);
-
-insert into tbl_board(bno, title, content, writer)
-values
-(1 ,'test1', 'test1 content', 'u001');
-
-
-////////////////////////////////////////////
-create table tbl_reply(
-rno number(5) primary key,
-bno number(5) references tbl_board(bno),
-replytext varchar2(1000) not null,
-replyer varchar2(21) not null,
-regdate date default sysdate,
-updatedate date default sysdate
-);
-
-Create table tbl_reply(
-	rno number(5) primary key,
-	bno number(5) references tbl_board(bno),
-	reptext varchar2(1000) not null, 
-	replyer varchar2(21) not null,
-	regdate date default sysdate,
-	updatedate date default sysdate
+//20191012 
+CREATE TABLE TBL_MEMBER(
+  SSO_ID VARCHAR(50) NOT NULL,
+  PASSWORD VARCHAR(100) NOT NULL,
+  USER_NAME VARCHAR(50) NOT NULL,
+  USER_ADDRESS VARCHAR(50),
+  BIRTH_DAY VARCHAR(50),
+  USER_EMAIL VARCHAR(50),
+  PHONE_NUM VARCHAR(50),
+  JOIN_DATE TIMESTAMP NOT NULL DEFAULT NOW(),
+  AUTHORITY VARCHAR(50) NOT NULL,
+  PRIMARY KEY (SSO_ID) 
 )
-
-alter table tbl_reply add constraint fk_board_bno
-foreign key(bno) reference tbl_board(bno)
-
-
-select * from  (select rownum rnum,rno,bno,reptext,replyer,regdate,updatedate from (select * from tbl_reply where bno = #{bno} order by rno desc)) 
-
-where rnum >=#{startRow} and rnum <=#{endRow}
-		
-
-create table tbl_user(
-	id varchar2(50) primary key,
-	upw varchar2(50) not null,
-	uname varchar2(100) not null,
-	upoint number(10) default 0
-);
-
-
-
-
-create table tbl_message(
-	mid number(3) primary key,
-	sid varchar2(50) references tbl_user(id),
-	rid varchar2(50) references tbl_user(id),
-	msg varchar2(1000) not null,
-	opendate date,
-	senddate date default sysdate	
-);
-
-insert into tbl_user(id, upw, uname) values ('u001','pu001','kim');
-insert into tbl_user(id, upw, uname) values ('u002','pu002','park');
-
-
-create table tbl_attach(
-	fullname varchar2(200) primary key,
-	bno number(5) references tbl_board(bno),
-	regdate date default sysdate 
-);
-
-
-
-
-

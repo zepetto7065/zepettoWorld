@@ -42,7 +42,7 @@
 										  <tr>
 										    <td style="text-align:center">${board.bno}</td>
 										    <td class="portlet_width"><a href="javascript:popupOpen(${board.bno})">${board.title}</a></td>
-										    <td style="text-align:center">${board.userName}(${board.ssoId})</td>						
+										    <td style="text-align:center">${board.ssoId}</td>						
 										  </tr>	
 										 </c:forEach>
 										 	

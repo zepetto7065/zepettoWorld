@@ -24,8 +24,7 @@ public class MemberController {
 
 	//로그인 UI
 	@RequestMapping(value = "login", method = RequestMethod.GET)
-	public String login() {
-		return "/login/login";
+	public void login() {
 	}
 	
 	//로그인 Success
@@ -52,7 +51,6 @@ public class MemberController {
 	
 	@RequestMapping(value = "join", method = RequestMethod.POST)
 	public String joinPost(MemberVO vo, RedirectAttributes rttr) {
-		vo.setUserBirth(vo.getBirthYear(), vo.getBirthMonth(), vo.getBirthDate()); //생년월일 셋팅		
 		memberService.join(vo);
 		
 		rttr.addFlashAttribute("msg", "INSERT_SUCCESS");

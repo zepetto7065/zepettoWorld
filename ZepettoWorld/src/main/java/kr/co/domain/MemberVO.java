@@ -5,55 +5,37 @@ import java.io.Serializable;
 public class MemberVO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private int bno;	
 	private String ssoId;
 	private String passWord;
 	private String userName;
-	private String userBirth;
-	private String birthYear;
-	private String birthMonth;
-	private String birthDate;
-	private String userGender;	
+	private String userAddress;
+	private String birthDay;
 	private String userEmail;
 	private String phoneNum;
 	private String joinDate;
-	private String deleteDate;
-	private String deleteYn;
+	private String authority;
 	
-	public MemberVO() {
+	private String stateSi;
+	private String stateGu;
+	private String stateDong;
+	private String stateDetail;
+	
+    public MemberVO() {
 		// TODO Auto-generated constructor stub
 	}
 
-    
-
-	public MemberVO(int bno, String ssoId, String passWord, String userName, String userBirth, String birthYear,
-			String birthMonth, String birthDate, String userGender, String userEmail, String phoneNum, String joinDate,
-			String deleteDate, String deleteYn) {
+	public MemberVO(String ssoId, String passWord, String userName, String userAddress, String birthDay,
+			String userEmail, String phoneNum, String joinDate, String authority) {
 		super();
-		this.bno = bno;
 		this.ssoId = ssoId;
 		this.passWord = passWord;
 		this.userName = userName;
-		this.userBirth = userBirth;
-		this.birthYear = birthYear;
-		this.birthMonth = birthMonth;
-		this.birthDate = birthDate;
-		this.userGender = userGender;
+		this.userAddress = userAddress;
+		this.birthDay = birthDay;
 		this.userEmail = userEmail;
 		this.phoneNum = phoneNum;
 		this.joinDate = joinDate;
-		this.deleteDate = deleteDate;
-		this.deleteYn = deleteYn;
-	}
-
-
-
-	public int getBno() {
-		return bno;
-	}
-
-	public void setBno(int bno) {
-		this.bno = bno;
+		this.authority = authority;
 	}
 
 	public String getSsoId() {
@@ -80,50 +62,20 @@ public class MemberVO implements Serializable {
 		this.userName = userName;
 	}
 
-
-	public String getUserBirth() {
-		return userBirth;
+	public String getUserAddress() {
+		return userAddress;
 	}
 
-	public void setUserBirth(String year,String month,String date) {
-		year = setBirthYear(year);
-		month = setBirthMonth(month);
-		date = setBirthDate(date);
-		String birth = year+month+date;
-		
-		this.userBirth = birth;
+	public void setUserAddress() {
+		this.userAddress = getStateSi()+" "+ getStateGu()+" "+ getStateDong()+" "+ getStateDetail();
 	}
 
-	public String getBirthYear() {
-		return birthYear;
+	public String getBirthDay() {
+		return birthDay;
 	}
 
-	public String setBirthYear(String birthYear) {
-		return this.birthYear = birthYear;
-	}
-
-	public String getBirthMonth() {
-		return birthMonth;
-	}
-
-	public String setBirthMonth(String birthMonth) {
-		return this.birthMonth = birthMonth;
-	}
-
-	public String getBirthDate() {
-		return birthDate;
-	}
-
-	public String setBirthDate(String birthDate) {
-		return this.birthDate = birthDate;
-	}
-
-	public String getUserGender() {
-		return userGender;
-	}
-
-	public void setUserGender(String userGender) {
-		this.userGender = userGender;
+	public void setBirthDay(String birthDay) {
+		this.birthDay = birthDay;
 	}
 
 	public String getUserEmail() {
@@ -150,21 +102,54 @@ public class MemberVO implements Serializable {
 		this.joinDate = joinDate;
 	}
 
-	public String getDeleteDate() {
-		return deleteDate;
+	public String getAuthority() {
+		return authority;
 	}
 
-	public void setDeleteDate(String deleteDate) {
-		this.deleteDate = deleteDate;
+	public void setAuthority(String authority) {
+		this.authority = authority;
 	}
 
-	public String getDeleteYn() {
-		return deleteYn;
+	public String getStateSi() {
+		return stateSi;
 	}
 
-	public void setDeleteYn(String deleteYn) {
-		this.deleteYn = deleteYn;
+	public void setStateSi(String stateSi) {
+		this.stateSi = stateSi;
 	}
+
+	public String getStateGu() {
+		return stateGu;
+	}
+
+	public void setStateGu(String stateGu) {
+		this.stateGu = stateGu;
+	}
+
+	public String getStateDong() {
+		return stateDong;
+	}
+
+	public void setStateDong(String stateDong) {
+		this.stateDong = stateDong;
+	}
+
+	public String getStateDetail() {
+		return stateDetail;
+	}
+
+	public void setStateDetail(String stateDetail) {
+		this.stateDetail = stateDetail;
+	}
+
+	@Override
+	public String toString() {
+		return "MemberVO [ssoId=" + ssoId + ", passWord=" + passWord + ", userName=" + userName + ", userAddress="
+				+ userAddress + ", birthDay=" + birthDay + ", userEmail=" + userEmail + ", phoneNum=" + phoneNum
+				+ ", joinDate=" + joinDate + ", authority=" + authority + "]";
+	}
+
+	
 	
 	
 	
