@@ -22,11 +22,7 @@ public class MemberController {
 	@Inject
 	private MemberService memberService;
 
-	//로그인 UI
-	@RequestMapping(value = "login", method = RequestMethod.GET)
-	public void login() {
-	}
-	
+
 	//로그인 Success
 	@RequestMapping(value = "loginSuc", method = RequestMethod.POST)
 	public MemberVO loginSuc(HttpServletRequest request, Model model) {

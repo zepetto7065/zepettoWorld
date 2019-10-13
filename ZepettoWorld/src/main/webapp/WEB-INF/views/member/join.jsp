@@ -329,13 +329,13 @@
 							    <div class="form-group row">
 							        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Password</label>
 							        <div class="col-lg-9">
-							            <input class="form-control" name="passWord" id="passWord" onkeyup="passwordCheck()" placeholder="사용하실 PW를 입력해주세요">
+							            <input class="form-control" type="password" name="passWord" id="passWord" onkeyup="passwordCheck()" placeholder="사용하실 PW를 입력해주세요">
 							        </div>
 							    </div>
 							    <div class="form-group row">
 							        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Confirm password</label>
 							        <div class="col-lg-9">
-							            <input class="form-control" name="passWordCheck" id="passWordCheck" onkeyup="passwordCheck()" placeholder="비밀번호 확인란입니다">
+							            <input class="form-control" type="password" name="passWordCheck" id="passWordCheck" onkeyup="passwordCheck()" placeholder="비밀번호 확인란입니다">
 							        </div>
 							    </div>
 							    <div id="checkPWMsg">

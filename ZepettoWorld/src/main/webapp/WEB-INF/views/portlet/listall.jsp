@@ -77,7 +77,7 @@
 			//&nbsp;만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
 		
 						
-			window.open("/board/readPopup?bno="+bno,"게시판 읽기","status=no, height=600, width=800, left="+ popupX + ", top="+ popupY);
+			window.open("/board/readPopup?bno="+bno,"게시판 읽기","status=no, height=680, width=800, left="+ popupX + ", top="+ popupY);
 		};
 
 	</script>
