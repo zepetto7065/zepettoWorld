@@ -204,7 +204,7 @@
 
 		
 		$(document).ready(function() {
-
+			var boardType = "${vo.boardType}";
 			var articleNo = "${vo.bno}"; //현재 게시글 번호
 			var replyPageNum = 1; //댓글 페이지 초기화
 			
@@ -421,7 +421,7 @@
 
 			$(".btn-info").on("click", function() {
 				$form.attr("method", "get");
-				$form.attr("action", "/board/listall");
+				$form.attr("action", "/board/listall?boardType="+boardType);
 				$form.submit();
 			});
 

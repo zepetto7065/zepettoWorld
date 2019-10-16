@@ -36,7 +36,6 @@ public class HomeController {
 		logger.info("Zepetto World 환영합니다.");
 		HttpSession session=request.getSession();
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1. 세션 컨트롤
-		System.out.println(session+":::::::::::session check _ HomeController");
 
 		if(vo.getSsoId()==null || vo.getSsoId()=="") {
 			return "/index";

@@ -3,6 +3,7 @@ package kr.co.domain;
 public class Criteria { //PageTO와 비슷한 기능. 페이징 처리를 위해
 	private int page;
 	private int perPageNum;
+	private String boardType;
 		
 	public Criteria() {
 		page=1;
@@ -39,9 +40,14 @@ public class Criteria { //PageTO와 비슷한 기능. 페이징 처리를 위해
 	public int getPageStart() {
 		return (this.page - 1 )*perPageNum;
 	}
-
-
-
 	
+	public String getBoardType() {
+		return boardType;
+	}
+
+	public void setBoardType(String boardType) {
+		this.boardType = boardType;
+	}
+
 	
 }

@@ -1,11 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+\<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%
 	String se = (String)session.getAttribute("signedUser");
-	System.out.println(se + "::: header.jsp입니다!! ");
-	
+
 %>	
 	
 <jsp:include page="/WEB-INF/views/header.jsp" />
@@ -36,7 +35,7 @@
 														</a>
 													</li>
 													<li class="dropdown">
-														<a class="dropdown-item dropdown-toggle" href="/overview">
+														<a class="dropdown-item dropdown-toggle" href="#">
 															About Me
 														</a>
 														<ul class="dropdown-menu">
@@ -49,26 +48,26 @@
 														</ul>
 													</li>
 													<li class="dropdown">
-														<a class="dropdown-item dropdown-toggle" href="/board/listall">
+														<a class="dropdown-item dropdown-toggle" href="#">
 															Board
 														</a>
 														<ul class="dropdown-menu">													
 															<li class="dropdown-item">
-																<a class="dropdown-item" href="/board/listall">공지사항</a>
+																<a class="dropdown-item" href="/board/listall?boardType=a">공지사항</a>
 															</li>
 															<li class="dropdown-item">
-																<a class="dropdown-item" href="/board/listall">QnA</a>
+																<a class="dropdown-item" href="/board/listall?boardType=q">QnA</a>
 															</li>
 															<li class="dropdown-item">
-																<a class="dropdown-item" href="/board/listall">Free Board</a>
+																<a class="dropdown-item" href="/board/listall?boardType=f">Free Board</a>
 															</li>
 															<li class="dropdown-item">
-																<a class="dropdown-item" href="/board/listall">Upload Board</a>
+																<a class="dropdown-item" href="/board/listall?boardType=d">Upload Board</a>
 															</li>
 														</ul>
 													</li>
 													<li class="dropdown">
-														<a class="dropdown-item dropdown-toggle" href="/faq">
+														<a class="dropdown-item dropdown-toggle" href="#">
 															Contact
 														</a>
 														<ul class="dropdown-menu">

@@ -27,27 +27,33 @@ public class BoardController {
 
 		
 	@RequestMapping(value = "listall", method = RequestMethod.GET)
-	public void listCriteria(@ModelAttribute("searchCriteria") SearchCriteria searchCriteria, Model model) {
+	public void listCriteria(@ModelAttribute("searchCriteria") SearchCriteria searchCriteria,String boardType, Model model) {
 		
 		logger.info("listCriteria called...........");
+		System.out.println(boardType+"::::::::::::boardType");
+		searchCriteria.setBoardType(boardType);
 		
 		PageMaker pageMaker = new PageMaker();  // 하단 페이징 숫자 보이기
-		pageMaker.setCriteria(searchCriteria);	
+		pageMaker.setCriteria(searchCriteria);
+		
 		pageMaker.setTotalCount(boardService.getTotalCount(searchCriteria)); //db에서 가져와야 함
 		
 		model.addAttribute("list", boardService.listCriteria(searchCriteria));
 		model.addAttribute("pageMaker", pageMaker);
+		model.addAttribute("boardType", boardType);
 	}
 	
 	@RequestMapping(value = "listallPortlet", method = RequestMethod.GET)
-	public String listCriteriaPortlet(SearchCriteria searchCriteria, Model model) {
-		model.addAttribute("list", boardService.listAll());
+	public String listCriteriaPortlet(SearchCriteria searchCriteria, Model model, String boardType) {
+		
+		model.addAttribute("list", boardService.listAll(boardType));
 		return "/portlet/listall";
 	}
 	 
 	@RequestMapping(value = "read")
-	public void read(@RequestParam("bno") int bno,@ModelAttribute("searchCriteria") SearchCriteria searchCriteria ,Model model) {
+	public void read(@RequestParam("bno") int bno,@ModelAttribute("searchCriteria") SearchCriteria searchCriteria ,Model model,String boardType) {
 		BoardVO vo = boardService.read(bno);
+		vo.setBoardType(boardType);
 		model.addAttribute("vo", vo);
 	}
 	
@@ -59,18 +65,19 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "create", method = RequestMethod.GET)
-	public void createGet() {
+	public void createGet(String boardType,Model model) {
+		model.addAttribute("type",boardType);
 	}
 
 	@RequestMapping(value = "create", method = RequestMethod.POST)
 	public String createPost(BoardVO vo, RedirectAttributes rttr) {
-		
 
+		vo.setBoardType(vo.getBoardType());
 		boardService.create(vo);
 
 		rttr.addFlashAttribute("msg", "INSERT_SUCCESS");
 
-		return "redirect:/board/listall";
+		return "redirect:/board/listall?boardType="+vo.getBoardType();
 	}
 	
 	@RequestMapping(value="update", method=RequestMethod.GET) 

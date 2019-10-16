@@ -15,6 +15,7 @@ public class BoardVO implements Serializable {
 	private int viewCnt;
 	private String deleteYn;
 	private int replyCnt;
+	private String boardType;
 
 	public BoardVO() {
 		// TODO Auto-generated constructor stub
@@ -23,7 +24,7 @@ public class BoardVO implements Serializable {
 	
 	
 	public BoardVO(int bno, String title, String ssoId, String userName, String regDate, String updateDate,
-			String content, int viewCnt, String deleteYn, int replyCnt) {
+			String content, int viewCnt, String deleteYn, int replyCnt, String boardType) {
 		super();
 		this.bno = bno;
 		this.title = title;
@@ -35,6 +36,7 @@ public class BoardVO implements Serializable {
 		this.viewCnt = viewCnt;
 		this.deleteYn = deleteYn;
 		this.replyCnt = replyCnt;
+		this.boardType = boardType;
 	}
 
 
@@ -118,13 +120,23 @@ public class BoardVO implements Serializable {
 	public void setReplyCnt(int replyCnt) {
 		this.replyCnt = replyCnt;
 	}
+	
+	public String getBoardType() {
+		return boardType;
+	}
+
+	public void setBoardType(String boardType) {
+		this.boardType = boardType;
+	}
+
 
 	@Override
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", title=" + title + ", ssoId=" + ssoId + ", userName=" + userName + ", regDate="
 				+ regDate + ", updateDate=" + updateDate + ", content=" + content + ", viewCnt=" + viewCnt
-				+ ", deleteYn=" + deleteYn + ", replyCnt=" + replyCnt + "]";
+				+ ", deleteYn=" + deleteYn + ", replyCnt=" + replyCnt + ", boardType=" + boardType + "]";
 	}
+
 	
 	
 }

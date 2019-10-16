@@ -79,3 +79,7 @@
 <!-- Head Libs -->
 <script src="${pageContext.request.contextPath}/resources/vendor/modernizr/modernizr.min.js"></script>
 
+<!-- Head Libs -->
+<script src="${pageContext.request.contextPath}/resources/jstree/jstree.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/jstree/themes/default/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/jstree/themes/default/style.min.css">

@@ -3,6 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <jsp:include page="/WEB-INF/views/header.jsp" />
 <!DOCTYPE html>
+<%
+	String boardType = (String) request.getAttribute("boardType");
+	System.out.println("boardType:::"+boardType);
+%>
 <html>
 	<body>
 
@@ -14,8 +18,14 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12 align-self-center p-static order-2 text-center">
-								<h1>Tables</h1>
-
+							<h1>
+							<c:choose>
+								<c:when test="${boardType eq 'a'}"><h1>공지사항</h1></c:when>		
+								<c:when test="${boardType eq 'q'}">QnA</c:when>		
+								<c:when test="${boardType eq 'f'}">자유게시판</c:when>		
+								<c:when test="${boardType eq 'd'}">자료게시판</c:when>		
+							</c:choose>
+							</h1>
 							</div>
 							<div class="col-md-12 align-self-center order-1">
 								<ul class="breadcrumb breadcrumb-light d-block text-center">
@@ -43,7 +53,7 @@
 
 								<hr class="solid my-5">
 
-								<h4>자유게시판</h4>
+								<h4>글 목록</h4>
 
 								<table class="table table-hover">
 									<thead style="text-align: center">
@@ -60,7 +70,7 @@
 											<tr>
 												<td style="text-align: center">${board.bno}</td>
 												<td>
-													<a href="/board/read${pageMaker.makeSearch(pageMaker.criteria.page)}&bno=${board.bno}">
+													<a href="/board/read${pageMaker.makeSearch(pageMaker.criteria.page)}&bno=${board.bno}&boardType=${board.boardType}">
 														${board.title}
 													</a>
 													<span class="badge bn-teal"><i class="fa fa-comment-o"></i> + ${board.replyCnt}</span>
@@ -124,7 +134,7 @@
 									</span>
 									<div style="float: right;">
 									<a class="btn btn-outline btn-primary mb-2"
-										href="/board/create">글쓰기</a>
+										href="/board/create?boardType=<%=boardType%>">글쓰기</a>
 									</div>
 								</div>
 							</div>

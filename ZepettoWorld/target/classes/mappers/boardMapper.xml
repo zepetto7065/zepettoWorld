@@ -16,10 +16,11 @@
 		<result column="VIEW_CNT" property="viewCnt" />
 		<result column="DELETE_YN" property="deleteYn" />		
 		<result column="REPLY_CNT" property="replyCnt" />			
+		<result column="BOARD_TYPE" property="boardType" />			
 	</resultMap>
 
 	<select id="listAll" resultMap="boardResult">
-		SELECT * FROM TBL_BOARD WHERE DELETE_YN = 'N' ORDER BY
+		SELECT * FROM TBL_BOARD WHERE DELETE_YN = 'N' AND BOARD_TYPE=#{boardType} ORDER BY
 		BNO DESC 
 	</select>
 
@@ -35,9 +36,12 @@
 		 CONTENT,
 		 VIEW_CNT,
 		 DELETE_YN,
-		 REPLY_CNT
+		 REPLY_CNT,
+		 BOARD_TYPE
 		 FROM TBL_BOARD 
-		 WHERE BNO>0
+		 WHERE 1=1 
+		 and BNO>0
+		 and BOARD_TYPE=#{boardType}
 		]]>
 				<include refid="search" />
 		<![CDATA[
@@ -56,14 +60,16 @@
 		<![CDATA[
 		SELECT COUNT(BNO) FROM
 		TBL_BOARD
-		WHERE BNO>0
+		WHERE 1=1 
+		and BNO>0
+		and BOARD_TYPE=#{boardType}
 		]]>
 		<include refid="search" />
 	</select>
 
 	<insert id="create">
-		INSERT INTO TBL_BOARD (BNO, TITLE, CONTENT, SSO_ID, DELETE_YN)
-		VALUES (#{bno}, #{title}, #{content}, #{ssoId},'N')
+		INSERT INTO TBL_BOARD (BNO, TITLE, CONTENT, SSO_ID, DELETE_YN,BOARD_TYPE)
+		VALUES (#{bno}, #{title}, #{content}, #{ssoId},'N', #{boardType})
 	</insert>
 
 	<update id="update">

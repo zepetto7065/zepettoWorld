@@ -34,7 +34,7 @@
 						<div class="col-lg-9 order-1 order-lg-2">
 							
 							<div class="overflow-hidden mb-1">
-								<h2 class="font-weight-normal text-7 mb-0"><strong class="font-weight-extra-bold">자유게시판</strong></h2>
+								<h2 class="font-weight-normal text-7 mb-0"><strong class="font-weight-extra-bold">글 쓰기</strong></h2>
 							</div>
 							<div class="overflow-hidden mb-4 pb-3">
 								<p class="mb-0">고객님께서 궁금해 하시는 질문에 대하여 작성하여 주십시오.</p>
@@ -61,8 +61,13 @@
 										<input type="text" maxlength="100" class="form-control" name="ssoId" id="ssoId" required>
 									</div>
 									<div class="form-group col-lg-6">
-										<label class="font-weight-bold text-dark text-2">작성일자</label>
-										<input type="text" maxlength="100" class="form-control" name="regdate" id="regdate" readonly="readonly" required>
+										<label class="font-weight-bold text-dark text-2">게시판 종류</label>
+										<select class="form-control" maxlength="100" name="boardType" id="boardType">
+											<option value="a">게시판 종류</option>
+											<option value="q">QnA</option>
+											<option value="f">자유게시판</option>
+											<option value="d">자료게시판</option>
+										</select>
 									</div>
 								</div>
 								<div class="form-row">
@@ -86,7 +91,9 @@
 	
 	<script>
 		var form = $("#createForm");
-		
+		var boardType = "${type}";
+		alert(boardType);
+
 		$(".btn-primary").click(function() {
 	
 			form.attr("action", "/board/create");
@@ -96,7 +103,7 @@
 		
 		
 		$(".btn-info").click(function() {
-			form.attr("action", "listall");
+			form.attr("action", "/board/listall?boardType="+boardType);
 			form.attr("method", "get");
 			form.submit();
 		});

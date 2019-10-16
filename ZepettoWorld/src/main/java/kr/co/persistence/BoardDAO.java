@@ -9,7 +9,7 @@ import kr.co.domain.SearchCriteria;
 public interface BoardDAO {
 	void create(BoardVO vo);
 	BoardVO read(Integer bno);
-	List<BoardVO> listAll();
+	List<BoardVO> listAll(String boardType);
 	void update(BoardVO vo);
 	void delete(int bno);
 	int getTotalCount(SearchCriteria searchCriteria);

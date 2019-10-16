@@ -27,9 +27,9 @@ public class BoardDAOImpl implements BoardDAO {
 	private SqlSession sqlSession; // null처럼 보이지만 null이 아님 @Inject 때문에
 
 	@Override
-	public List<BoardVO> listAll() {
+	public List<BoardVO> listAll(String boardType) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(NAMESPACE + ".listAll");
+		return sqlSession.selectList(NAMESPACE + ".listAll",boardType);
 	}
 	
 	@Override
@@ -47,7 +47,10 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public void create(BoardVO vo) {
 		// TODO Auto-generated method stub
-
+		
+		
+		
+		
 		sqlSession.insert(NAMESPACE+".create", vo);
 	}
 

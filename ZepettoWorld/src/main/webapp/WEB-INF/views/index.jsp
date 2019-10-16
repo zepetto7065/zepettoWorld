@@ -109,7 +109,7 @@
 								</ul>
 								<div class="tab-content">
 									<div id="popular" class="tab-pane active">
-										<iframe src="/board/listallPortlet" frameborder="0" scrolling="no" style="width:100%;height:210px"></iframe>
+										<iframe src="/board/listallPortlet?boardType=a" frameborder="0" scrolling="no" style="width:100%;height:210px"></iframe>
 									</div>
 								</div>
 							</div>
@@ -124,7 +124,7 @@
 								</ul>
 								<div class="tab-content">
 									<div id="popular" class="tab-pane active">
-										<iframe src="/board/listallPortlet" frameborder="0" scrolling="no" style="width:100%;height:210px" ></iframe>
+										<iframe src="/board/listallPortlet?boardType=f" frameborder="0" scrolling="no" style="width:100%;height:210px" ></iframe>
 									</div>
 
 								</div>
@@ -148,7 +148,7 @@
 								</ul>
 								<div class="tab-content">
 									<div id="popular" class="tab-pane active">
-										<iframe src="/board/listallPortlet" frameborder="0" scrolling="no" style="width:100%;height:210px"></iframe>
+										<iframe src="/board/listallPortlet?boardType=q" frameborder="0" scrolling="no" style="width:100%;height:210px"></iframe>
 									</div>
 								</div>
 							</div>
@@ -163,7 +163,7 @@
 								</ul>
 								<div class="tab-content">
 									<div id="popular" class="tab-pane active">
-										<iframe src="/board/listallPortlet" frameborder="0" scrolling="no" style="width:100%;height:210px" ></iframe>
+										<iframe src="/board/listallPortlet?boardType=d" frameborder="0" scrolling="no" style="width:100%;height:210px" ></iframe>
 									</div>
 
 								</div>
