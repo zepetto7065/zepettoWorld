@@ -21,9 +21,10 @@
 		<!-- <property value="oracle.jdbc.driver.OracleDriver" name="driverClassName"></property>
 		<property value="jdbc:oracle:thin:@localhost:1521:xe" name="url"></property> -->
 		<property value="com.mysql.cj.jdbc.Driver" name="driverClassName"></property>
-		<property value="jdbc:mysql://183.111.199.216:3306/zepetto7065?useSSL=false&amp;serverTimezone=UTC" name="url"></property>
-		<property value="zepetto7065" name="username"></property>
-		<property value="welcome1" name="password"></property>
+		<property value="jdbc:mysql://183.111.199.216:3306/zepetto7065?useSSL=false&amp;serverTimezone=UTC" name="url" /> <!-- 개발 -->
+		<!-- <property value="jdbc:mysql://127.0.0.1?useSSL=false&amp;serverTimezone=UTC" name="url" /> --> <!-- 운영 -->
+		<property value="zepetto7065" name="username"/>
+		<property value="welcome1" name="password"/>
 	
 	</bean>
 	

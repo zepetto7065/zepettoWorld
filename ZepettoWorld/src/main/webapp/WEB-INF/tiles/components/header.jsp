@@ -1,4 +1,4 @@
-\<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
@@ -84,8 +84,7 @@
 															org
 														</a>
 													</li>
-													<c:set var="session" value="<%=se%>" />
-													<c:if test="${session eq null}">	
+													<c:if test="${signedUser eq null}">	
 													<li class="dropdown">
 														<a class="dropdown-item dropdown-toggle" href="/login/login">
 															Sign in
@@ -97,7 +96,7 @@
 														</a>
 													</li>
 													</c:if>
-													<c:if test="${session ne null}">
+													<c:if test="${signedUser ne null}">
 													<li class="dropdown">
 														<a class="dropdown-item dropdown-toggle" href="/login/logout">
 															Sign out
@@ -108,25 +107,13 @@
 												</ul>
 											</nav>
 										</div>
-										<button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main nav">
-											<i class="fas fa-bars"></i>
-										</button>
-									</div>
-									<div class="header-nav-features header-nav-features-no-border header-nav-features-lg-show-border order-1 order-lg-2">
-										<div class="header-nav-feature header-nav-features-search d-inline-flex">
-											<a href="#" class="header-nav-features-toggle" data-focus="headerSearch"><i class="fas fa-search header-nav-top-icon"></i></a>
-											<div class="header-nav-features-dropdown" id="headerTopSearchDropdown">
-												<form role="search" action="page-search-results.html" method="get">
-													<div class="simple-search input-group">
-														<input class="form-control text-1" id="headerSearch" name="q" type="search" value="" placeholder="Search...">
-														<span class="input-group-append">
-															<button class="btn" type="submit">
-																<i class="fa fa-search header-nav-top-icon"></i>
-															</button>
-														</span>
-													</div>
-												</form>
-											</div>
+										<div>
+										<c:if test="${signedUser ne null}">
+										| ${signedUser}님 환영합니다.
+										</c:if>
+										<c:if test="${signedUser eq null}">
+										| Please Sign in
+										</c:if>
 										</div>
 									</div>
 								</div>
@@ -137,7 +124,7 @@
 			</header>
 			<script>
 				function goOrg(){
-					window.open("/org/ptlOrg","조직도","width=900px,height=500px,scrolling=no,status=no");
+					window.open("/popup/ptlOrg","조직도","width=900px,height=500px,scrolling=no,status=no");
 				}
 				
 				</script>

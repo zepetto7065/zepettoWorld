@@ -26,10 +26,10 @@
 <body>
 	<div style="height:100%">
 		<div class="org_dept">
-			<iframe src="/org/org_org" scrolling="no" class="iframe_dept" ></iframe>
+			<iframe src="/popup/org_org" scrolling="no" class="iframe_dept" ></iframe>
 		</div >
 		<div class="org_dept">
-			<iframe src="/org/org_list" scrolling="no" class="iframe_dept" ></iframe>
+			<iframe src="/popup/org_list" scrolling="no" class="iframe_dept" ></iframe>
 		</div>
 	</div>
 

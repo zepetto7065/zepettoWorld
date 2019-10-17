@@ -58,12 +58,15 @@
 								<div class="form-row">
 									<div class="form-group col-lg-6">
 										<label class="font-weight-bold text-dark text-2">작성자</label>
-										<input type="text" maxlength="100" class="form-control" name="ssoId" id="ssoId" required>
+										<input type="text" maxlength="100" class="form-control" name="ssoId" id="ssoId" value="${signedUser}" readonly="readonly" required>
 									</div>
 									<div class="form-group col-lg-6">
 										<label class="font-weight-bold text-dark text-2">게시판 종류</label>
 										<select class="form-control" maxlength="100" name="boardType" id="boardType">
-											<option value="a">게시판 종류</option>
+											<option value="">게시판 종류</option>
+											<c:if test="${signedUser eq 'admin'}">
+											<option value="a">공지사항</option>									
+											</c:if>
 											<option value="q">QnA</option>
 											<option value="f">자유게시판</option>
 											<option value="d">자료게시판</option>
@@ -91,8 +94,7 @@
 	
 	<script>
 		var form = $("#createForm");
-		var boardType = "${type}";
-		alert(boardType);
+		var boardType = "${boardType}";
 
 		$(".btn-primary").click(function() {
 	

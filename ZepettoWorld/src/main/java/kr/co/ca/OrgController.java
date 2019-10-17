@@ -1,22 +1,16 @@
 package kr.co.ca;
 
-import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
+import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import kr.co.domain.MemberVO;
-import kr.co.service.MemberService;
-
 
 
 @Controller
-@RequestMapping("org")
+@RequestMapping("popup")
 public class OrgController {
 
 	
@@ -42,6 +36,32 @@ public class OrgController {
 		return "/popup/org_dlist";
 	}	
 
+	
+	@RequestMapping(value = "orgList", method = RequestMethod.GET)
+	public @ResponseBody JSONObject org_org() throws Exception {
+		// 모든 메뉴를 추출하여 가져온다.
+		JSONObject data = new JSONObject();
+		data.put("id","test1");
+		data.put("parent","#");
+		data.put("text","jsonTest");
 
+		
+		JSONObject data2 = new JSONObject();
+		data.put("id","test2");
+		data.put("parent","#");
+		data.put("text","jsonTest2");
+
+
+		
+		JSONObject response = new JSONObject();
+		response.put("response",data);
+		response.put("response2",data2);
+		
+		String jsonString = response.toJSONString();
+		System.out.println(jsonString);
+		System.out.println(data.toJSONString());
+	
+		return data;
+	}
 	
 }

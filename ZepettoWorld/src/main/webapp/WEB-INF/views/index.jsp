@@ -103,7 +103,7 @@
 							<div class="tabs">
 								<ul class="nav nav-tabs">
 									<li class="nav-item active">
-										<a class="nav-link" href="#popular" data-toggle="tab">공지사항</a>
+										<a class="nav-link" href="/board/listall?boardType=a" data-toggle="tab">공지사항</a>
 									</li>
 
 								</ul>
@@ -119,7 +119,7 @@
 							<div class="tabs" >
 								<ul class="nav nav-tabs">
 									<li class="nav-item active">
-										<a class="nav-link" href="#popular" data-toggle="tab">자유게시판</a>
+										<a class="nav-link" href="/board/listall?boardType=f" data-toggle="tab">자유게시판</a>
 									</li>
 								</ul>
 								<div class="tab-content">
@@ -142,7 +142,7 @@
 							<div class="tabs">
 								<ul class="nav nav-tabs">
 									<li class="nav-item active">
-										<a class="nav-link" href="#popular" data-toggle="tab">QnA</a>
+										<a class="nav-link" href="/board/listall?boardType=q" data-toggle="tab">QnA</a>
 									</li>
 
 								</ul>
@@ -158,7 +158,7 @@
 							<div class="tabs" >
 								<ul class="nav nav-tabs">
 									<li class="nav-item active">
-										<a class="nav-link" href="#popular" data-toggle="tab">자료게시판</a>
+										<a class="nav-link" href="/board/listall?boardType=d" data-toggle="tab">자료게시판</a>
 									</li>
 								</ul>
 								<div class="tab-content">

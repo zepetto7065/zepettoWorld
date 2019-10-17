@@ -4,8 +4,10 @@
 <jsp:include page="/WEB-INF/views/header.jsp" />
 <!DOCTYPE html>
 <%
+	String ssoId = (String)session.getAttribute("signedUser");
+
 	String boardType = (String) request.getAttribute("boardType");
-	System.out.println("boardType:::"+boardType);
+	System.out.println("ssoId::::"+ssoId);
 %>
 <html>
 	<body>
@@ -18,14 +20,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12 align-self-center p-static order-2 text-center">
-							<h1>
-							<c:choose>
-								<c:when test="${boardType eq 'a'}"><h1>공지사항</h1></c:when>		
-								<c:when test="${boardType eq 'q'}">QnA</c:when>		
-								<c:when test="${boardType eq 'f'}">자유게시판</c:when>		
-								<c:when test="${boardType eq 'd'}">자료게시판</c:when>		
-							</c:choose>
-							</h1>
+							<h1>게시판</h1>
 							</div>
 							<div class="col-md-12 align-self-center order-1">
 								<ul class="breadcrumb breadcrumb-light d-block text-center">
@@ -58,7 +53,6 @@
 								<table class="table table-hover">
 									<thead style="text-align: center">
 										<tr>
-											<th>No</th>
 											<th style="width: 50%">제목</th>
 											<th>작성자</th>
 											<th>작성일자</th>
@@ -68,7 +62,6 @@
 									<tbody>
 										<c:forEach items="${list}" var="board">
 											<tr>
-												<td style="text-align: center">${board.bno}</td>
 												<td>
 													<a href="/board/read${pageMaker.makeSearch(pageMaker.criteria.page)}&bno=${board.bno}&boardType=${board.boardType}">
 														${board.title}
@@ -133,8 +126,16 @@
 										</button>
 									</span>
 									<div style="float: right;">
-									<a class="btn btn-outline btn-primary mb-2"
-										href="/board/create?boardType=<%=boardType%>">글쓰기</a>
+										<c:if test="${(boardType eq 'q' || boardType eq 'f' || boardType eq 'd') && signedUser ne null}">	
+										<a class="btn btn-outline btn-primary mb-2" href="/board/create?boardType=<%=boardType%>">
+											글쓰기
+										</a>
+										</c:if>
+										<c:if test="${signedUser eq 'admin' && boardType eq 'a'}">
+										<a class="btn btn-outline btn-primary mb-2" href="/board/create?boardType=<%=boardType%>">
+											글쓰기
+										</a>
+										</c:if>		
 									</div>
 								</div>
 							</div>

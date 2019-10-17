@@ -29,10 +29,10 @@
 	
 	<div style="height:92%">
 		<div class="org_dept">
-			<iframe src="/org/org_dlist" scrolling="no" class="iframe_dept" ></iframe>
+			<iframe src="/popup/org_dlist" scrolling="no" class="iframe_dept" ></iframe>
 		</div >
 		<div class="org_dept">
-			<iframe src="/org/org_detail" scrolling="no" class="iframe_dept"></iframe>
+			<iframe src="/popup/org_detail" scrolling="no" class="iframe_dept"></iframe>
 		</div>
 	</div>
 </body>

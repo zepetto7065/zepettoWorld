@@ -30,7 +30,6 @@ public class BoardController {
 	public void listCriteria(@ModelAttribute("searchCriteria") SearchCriteria searchCriteria,String boardType, Model model) {
 		
 		logger.info("listCriteria called...........");
-		System.out.println(boardType+"::::::::::::boardType");
 		searchCriteria.setBoardType(boardType);
 		
 		PageMaker pageMaker = new PageMaker();  // 하단 페이징 숫자 보이기
@@ -41,6 +40,7 @@ public class BoardController {
 		model.addAttribute("list", boardService.listCriteria(searchCriteria));
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("boardType", boardType);
+
 	}
 	
 	@RequestMapping(value = "listallPortlet", method = RequestMethod.GET)
@@ -58,9 +58,10 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "readPopup")
-	public String readPopup(@RequestParam("bno") int bno, Model model) {
+	public String readPopup(@RequestParam("bno") int bno, Model model,String boardType) {
 		BoardVO vo = boardService.read(bno);
 		model.addAttribute("vo", vo);
+		model.addAttribute("boartType",boardType);
 		return "/popup/read";
 	}
 

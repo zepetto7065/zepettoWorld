@@ -34,6 +34,8 @@ public class HomeController {
 	@RequestMapping(value = "/", method = {RequestMethod.GET,RequestMethod.POST})
 	public String home(HttpServletRequest request,HttpServletResponse response, Model model,MemberVO vo) {
 		logger.info("Zepetto World 환영합니다.");
+		logger.info("ssoId ::: "+vo.getSsoId());
+		
 		HttpSession session=request.getSession();
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1. 세션 컨트롤
 

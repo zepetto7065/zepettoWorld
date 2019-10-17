@@ -15,8 +15,8 @@
 <body>
   <!-- 3 setup a container element -->
   <div id="jstree">
-    <!-- in this example the tree is populated from inline HTML -->
-    <ul>
+  <!-- in this example the tree is populated from inline HTML -->
+<!--     <ul>
       <li> ZepettoWorld _ 개발팀
         <ul>
           <li id="child_node_1">WebApplication 개발 1팀</li>
@@ -24,29 +24,84 @@
         </ul>
       </li>
       <li>ZepettoWorld _ 영업팀</li>
-    </ul>
+    </ul>  -->
   </div>
+  <table>
+  
+  </table>
   <!-- <button>demo button</button> -->
 
-  <!-- 4 include the jQuery library -->
-  <script src="dist/libs/jquery.js"></script>
-  <!-- 5 include the minified jstree source -->
-  <script src="dist/jstree.min.js"></script>
   <script>
-  $(function () {
-    // 6 create an instance when the DOM is ready
-    $('#jstree').jstree();
-    // 7 bind to events triggered on the tree
+
+	  $(function () {
+			var jsonData;
+
+	 		 $.ajax({
+					type:"GET",
+					url:"/popup/orgList",
+					async:false,
+					dataType:"json",
+					success:function(data){
+						alert(data);
+						jsonData = data;
+					},
+					error:function(){
+						alert("data 통신 실패");
+					}
+	 		 });
+alert(jsonData);
+
+			    $('#jstree').jstree({
+		    	'core' : 
+		    	{
+		    	 	'data' : 	[		jsonData,
+							 { "id" : "ajson1", "parent" : "#", "text" : "Simple root node" }/* ,
+						       { "id" : "ajson2", "parent" : "#", "text" : "Root node 2" },
+						       { "id" : "ajson3", "parent" : "ajson2", "text" : "Child 1" },
+						       { "id" : "ajson4", "parent" : "ajson2", "text" : "Child 2" }  */
+		    	 		]
+		    	},
+		    	  'plugins' : [ "themes", "json_data", "ui", "sort", "types", "crrm", "cookies",  "search" ]
+
+		    }).bind("select_node.jstree",function(evt,data){
+		    	console.log("nodeId : " + data.node.id); //노드가 선택된 뒤 처리 이벤트
+		     	var dataType = data.node.parent;
+
+	        	if( dataType == "#"){
+					
+					// 최상위 노드 클릭
+					
+					$("#treeDiv").jstree("open_node", "#" + data.selected[0]);
+					
+						     	  }else{
+					
+					// 하위 노드 클릭
+
+        	  	  }
+
+
+		    });
+		    
+		
+			  });
+    
+/*      // 7 bind to events triggered on the tree
     $('#jstree').on("changed.jstree", function (e, data) {
       console.log(data.selected);
-    });
+    }); */
+     
+     
+    /*
     // 8 interact with the tree - either way is OK
     $('button').on('click', function () {
       $('#jstree').jstree(true).select_node('child_node_1');
       $('#jstree').jstree('select_node', 'child_node_1');
       $.jstree.reference('#jstree').select_node('child_node_1');
-    });
-  });
+    }); */
+    
+
+
+  
   </script>
 
 

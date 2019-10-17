@@ -4,6 +4,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <jsp:include page="/WEB-INF/views/header.jsp" />
 <!DOCTYPE html>
+<%
+	String boardType = (String) request.getParameter("boardType");
+	System.out.println("boarType:::"+boardType);
+%>
 <html>
 
 	<body>
@@ -19,7 +23,15 @@
 						<div class="col-lg-9 order-1 order-lg-2">
 							
 							<div class="overflow-hidden mb-1">
-								<h2 class="font-weight-normal text-7 mb-0"><strong class="font-weight-extra-bold">자유게시판</strong></h2>
+								<h2 class="font-weight-normal text-7 mb-0"><strong class="font-weight-extra-bold">
+								<c:choose>
+									<c:when test="${boardType eq 'a'}">공지사항</c:when>		
+									<c:when test="${boardType eq 'q'}">QnA</c:when>		
+									<c:when test="${boardType eq 'f'}">자유게시판</c:when>		
+									<c:when test="${boardType eq 'd'}">자료게시판</c:when>		
+								</c:choose>
+								</strong>
+								</h2>
 							</div>
 							<div class="overflow-hidden mb-4 pb-3">
 								<p class="mb-0">고객님께서 궁금해 하시는 질문에 대한 답변을 모아놓았습니다.</p>
