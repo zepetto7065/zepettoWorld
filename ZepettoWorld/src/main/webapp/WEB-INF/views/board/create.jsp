@@ -69,7 +69,7 @@
 											</c:if>
 											<option value="q">QnA</option>
 											<option value="f">자유게시판</option>
-											<option value="d">자료게시판</option>
+											<!-- <option value="d">자료게시판 - 준비중 </option> -->
 										</select>
 									</div>
 								</div>
