@@ -14,6 +14,8 @@ public class MemberVO implements Serializable {
 	private String phoneNum;
 	private String joinDate;
 	private String authority;
+	private String orgName;
+	private String orgCode;
 	
 	private String stateSi;
 	private String stateGu;
@@ -142,11 +144,33 @@ public class MemberVO implements Serializable {
 		this.stateDetail = stateDetail;
 	}
 
+	public String getOrgName() {
+		return orgName;
+	}
+
+	public void setOrgName(String orgName) {
+		this.orgName = orgName;
+	}
+
+	public String getOrgCode() {
+		return orgCode;
+	}
+
+	public void setOrgCode(String orgCode) {
+		this.orgCode = orgCode;
+	}
+
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
+	}
+
 	@Override
 	public String toString() {
 		return "MemberVO [ssoId=" + ssoId + ", passWord=" + passWord + ", userName=" + userName + ", userAddress="
 				+ userAddress + ", birthDay=" + birthDay + ", userEmail=" + userEmail + ", phoneNum=" + phoneNum
-				+ ", joinDate=" + joinDate + ", authority=" + authority + "]";
+				+ ", joinDate=" + joinDate + ", authority=" + authority + ", orgName=" + orgName + ", orgCode="
+				+ orgCode + ", stateSi=" + stateSi + ", stateGu=" + stateGu + ", stateDong=" + stateDong
+				+ ", stateDetail=" + stateDetail + "]";
 	}
 
 	

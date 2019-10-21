@@ -433,7 +433,7 @@
 		{{#each.}}
 	    <div class="post replyDiv" data-rno={{replyNo}}>
         <div class="user-block">
-            <img class="img-circle img-bordered-sm" style="width:10%" src="${pageContext.request.contextPath}/resources/img/human.jpeg" alt="user image">
+            <img class="img-circle img-bordered-sm" style="width:10%" src="${pageContext.request.contextPath}/resources/img/noImageMan.jpeg" alt="user image">
             <span class="username">
                 <a style="font-weight:bold;">{{replyWriter}}</a>
 			<span style="float:right;">

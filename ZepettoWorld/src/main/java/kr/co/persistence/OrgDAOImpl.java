@@ -1,5 +1,4 @@
 package kr.co.persistence;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -9,6 +8,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Repository;
 
+import kr.co.domain.MemberVO;
 import kr.co.domain.OrgMaker;
 
 
@@ -29,9 +29,8 @@ public class OrgDAOImpl implements OrgDAO {
 		JSONArray jsonArray =  new JSONArray();
 
 		List<OrgMaker> list = sqlSession.selectList(NAMESPACE+".orgList");
-		
-		String test = "";
-		
+
+		//json 객체 생성 및 jsonarray에 저장 
 		for(int i = 0;i<list.size();i++) {
 			JSONObject data = new JSONObject();
 
@@ -46,6 +45,25 @@ public class OrgDAOImpl implements OrgDAO {
 
 		return jsonArray;
 		
+	}
+
+
+	@Override
+	public List<String> orgUserList(String nodeId) {
+		// TODO Auto-generated method stub
+		List<String> list = sqlSession.selectList(NAMESPACE + ".orgUserList",nodeId);
+		System.out.println(list.toString());
+		
+		return list;
+	}
+	
+	@Override
+	public List<MemberVO> orgUserDetail(String userName) {
+		// TODO Auto-generated method stub
+		List<MemberVO> list = sqlSession.selectList(NAMESPACE + ".orgUserDetail",userName);
+		System.out.println(list.toString());
+		
+		return list;
 	}
 
 

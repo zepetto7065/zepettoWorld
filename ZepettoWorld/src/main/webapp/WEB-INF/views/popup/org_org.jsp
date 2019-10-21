@@ -57,35 +57,38 @@
 			$('#jstree').jstree(
 					{
 						'core' : {
-							'data' : jsonData
-						/* ,
-						  { "id" : "ajson2", "parent" : "#", "text" : "Root node 2" },
-						  { "id" : "ajson3", "parent" : "ajson2", "text" : "Child 1" },
-						  { "id" : "ajson4", "parent" : "ajson2", "text" : "Child 2" }  */
-
+							'data' : jsonData //jsonArray 데이터 출력
 						},
 						'plugins' : [ "themes", "json_data", "ui", "sort",
 								"types", "crrm", "cookies", "search" ]
 
 					}).bind("select_node.jstree", function(evt, data) {
 				console.log("nodeId : " + data.node.id); //노드가 선택된 뒤 처리 이벤트
-				var dataType = data.node.parent;
-
-				if (dataType == "#") {
-
-					// 최상위 노드 클릭
-
-					$("#treeDiv").jstree("open_node", "#" + data.selected[0]);
-
-				} else {
-
-					// 하위 노드 클릭
-
-				}
-
+				var nodeId = data.node.id;
+				getOrgUserList(nodeId); // 선택된 nodeId에 따라 조직 사용자 리스트 출력
+	
+				
 			});
 
 		});
+		
+		function getOrgUserList(nodeId){
+			alert("111")
+			$.ajax({
+				type : "GET",
+				url : "/popup/orgUserList",
+				async : false,
+				data : {"nodeId" : nodeId},
+				success : function(data) {
+					console.log(data);
+					$.each()
+					
+				},
+				error : function() {
+					alert("orgUserList data 통신 실패");
+				}
+			});
+		}
 
 		/*      // 7 bind to events triggered on the tree
 		 $('#jstree').on("changed.jstree", function (e, data) {

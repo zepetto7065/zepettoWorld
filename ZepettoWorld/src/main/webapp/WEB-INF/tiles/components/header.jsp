@@ -40,10 +40,15 @@
 														</a>
 														<ul class="dropdown-menu">
 															<li class="dropdown-item">
-																<a class="dropdown-item" href="/overview">Overview</a>
+																<li class="dropdown-submenu">
+																	<a class="dropdown-item" href="/overview">Overview</a>
+																</li>
 															</li>
 															<li class="dropdown-item">
+																															<li class="dropdown-submenu">
+															
 																<a class="dropdown-item" href="/aboutme/portofolio">Portofolio</a>
+																</li>
 															</li>
 														</ul>
 													</li>
@@ -53,16 +58,24 @@
 														</a>
 														<ul class="dropdown-menu">													
 															<li class="dropdown-item">
-																<a class="dropdown-item" href="/board/listall?boardType=a">공지사항</a>
+																<li class="dropdown-submenu">
+																	<a class="dropdown-item" href="/board/listall?boardType=a">공지사항</a>
+																</li>
 															</li>
 															<li class="dropdown-item">
+																<li class="dropdown-submenu">
 																<a class="dropdown-item" href="/board/listall?boardType=q">QnA</a>
+																</li>
 															</li>
 															<li class="dropdown-item">
+																<li class="dropdown-submenu">
 																<a class="dropdown-item" href="/board/listall?boardType=f">Free Board</a>
+																</li>
 															</li>
 															<li class="dropdown-item">
+																<li class="dropdown-submenu">
 																<a class="dropdown-item" href="/board/listall?boardType=d">Upload Board</a>
+																</li>
 															</li>
 														</ul>
 													</li>
@@ -72,10 +85,15 @@
 														</a>
 														<ul class="dropdown-menu">
 															<li class="dropdown-item">
-																<a class="dropdown-item" href="/faq">FAQ</a>
+																															<li class="dropdown-submenu">
+																										<a class="dropdown-item" href="/faq">FAQ</a>
+																										</li>
 															</li>
 															<li class="dropdown-item">
+																															<li class="dropdown-submenu">
+															
 																<a class="dropdown-item" href="/contactMe">Contact Me</a>
+																</li>
 															</li>
 													 	</ul>
 													</li>
@@ -103,17 +121,36 @@
 														</a>
 													</li>
 													</c:if>
-													
+
 												</ul>
 											</nav>
 										</div>
-										<div>
-										<c:if test="${signedUser ne null}">
-										| ${signedUser}님 환영합니다.
-										</c:if>
-										<c:if test="${signedUser eq null}">
-										| Please Sign in
-										</c:if>
+										<button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main nav">
+											<i class="fas fa-bars"></i>
+										</button>
+									</div>
+									<div class="header-nav-features header-nav-features-no-border header-nav-features-lg-show-border order-1 order-lg-2">
+										<div class="header-nav-feature header-nav-features-search d-inline-flex">
+											<div>
+											<c:if test="${signedUser ne null}">
+											${signedUser}님 환영합니다.
+											</c:if>
+											<c:if test="${signedUser eq null}">
+											Please Sign in
+											</c:if>
+											</div>
+											<div class="header-nav-features-dropdown" id="headerTopSearchDropdown">
+												<form role="search" action="page-search-results.html" method="get">
+													<div class="simple-search input-group">
+														<input class="form-control text-1" id="headerSearch" name="q" type="search" value="" placeholder="Search...">
+														<span class="input-group-append">
+															<button class="btn" type="submit">
+																<i class="fa fa-search header-nav-top-icon"></i>
+															</button>
+														</span>
+													</div>
+												</form>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -124,7 +161,7 @@
 			</header>
 			<script>
 				function goOrg(){
-					window.open("/popup/ptlOrg","조직도","width=900px,height=500px,scrolling=no,status=no");
+					window.open("/popup/ptlOrg","조직도","width=900px,height=600px,scrolling=no,status=no");
 				}
 				
 				</script>

@@ -1,14 +1,17 @@
 package kr.co.ca;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.domain.MemberVO;
 import kr.co.service.OrgService;
 
 
@@ -43,34 +46,30 @@ public class OrgController {
 
 	
 	@RequestMapping(value = "orgList", method = RequestMethod.GET)
-	public @ResponseBody JSONArray org_org() throws Exception {
+	public @ResponseBody JSONArray orgOrgList() throws Exception {
 		// 모든 메뉴를 추출하여 가져온다.
 		JSONArray jsonDataList = orgService.orglist();
-		String str = jsonDataList.toJSONString();
-		
-		
-		JSONObject data = new JSONObject();
-		data.put("id","test1");
-		data.put("parent","#");
-		data.put("text","jsonTest");
 
-		
-		JSONObject data2 = new JSONObject();
-		data.put("id","test2");
-		data.put("parent","#");
-		data.put("text","jsonTest2");
-
-
-		
-		JSONObject response = new JSONObject();
-		response.put("response",data);
-		response.put("response2",data2);
-		
-		String jsonString = response.toJSONString();
-		System.out.println(jsonString);
-		System.out.println(data.toJSONString());
 	
 		return jsonDataList;
 	}
+	
+	@RequestMapping(value = "orgUserList", method = RequestMethod.GET)
+	public @ResponseBody List<String> orgUserList(@RequestParam(value="nodeId") String nodeId) throws Exception {
+		System.out.println("nodeId ="+nodeId);
+		List<String> list = orgService.orgUserList(nodeId);
+		return list;
+
+	}
+	
+	@RequestMapping(value = "orgUserDetail", method = RequestMethod.GET)
+	public @ResponseBody List<MemberVO> orgUserDetail(@RequestParam(value="userName") String userName) throws Exception {
+		System.out.println("userName ="+userName);
+		List<MemberVO> list = orgService.orgUserDetail(userName);
+		return list;
+		
+	}
+	
+		
 	
 }

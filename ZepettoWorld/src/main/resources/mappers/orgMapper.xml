@@ -10,9 +10,31 @@
 		<result column="NAME" property="name" />
 		<result column="PID" property="pid" />
 	</resultMap>
+	
+	<resultMap type="kr.co.domain.MemberVO" id="memberResult">
+		<result column="SSO_ID" property="ssoId" />
+		<result column="PASSWORD" property="passWord" />
+		<result column="USER_NAME" property="userName" />
+		<result column="USER_ADDRESS" property="userAddress" />
+		<result column="BIRTH_DAY" property="birthDay" />		
+		<result column="USER_EMAIL" property="userEmail" />
+		<result column="PHONE_NUM" property="phoneNum" />
+		<result column="JOIN_DATE" property="joinDate"	/>
+		<result column="AUTHORITY" property="authority"	/>				
+		<result column="ORG_CODE" property="orgCode"	/>				
+		<result column="ORG_NAME" property="orgName"	/>				
+	</resultMap>
 
 	<select id="orgList" resultMap="orgResult">
 		SELECT * FROM TBL_ORG;	
+	</select>
+
+	<select id="orgUserList" resultType="String">
+		SELECT USER_NAME FROM TBL_MEMBER WHERE ORG_CODE = #{nodeId}
+	</select>
+
+	<select id="orgUserDetail" resultMap="memberResult">
+		SELECT * FROM TBL_MEMBER WHERE USER_NAME = #{userName}
 	</select>
 
 
