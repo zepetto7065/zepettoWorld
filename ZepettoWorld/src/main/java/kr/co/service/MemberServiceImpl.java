@@ -15,9 +15,9 @@ public class MemberServiceImpl implements MemberService {
 		
 
 	@Override
-	public MemberVO loginSuc(MemberVO vo) {
+	public MemberVO loginUserInfo(MemberVO vo) {
 		// TODO Auto-generated method stub
-		MemberVO result = memberDao.loginSuc(vo);
+		MemberVO result = memberDao.loginUserInfo(vo);
 		
 		return result;
 	}

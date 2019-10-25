@@ -56,9 +56,9 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public MemberVO loginSuc(MemberVO vo) {
+	public MemberVO loginUserInfo(MemberVO vo) {
 		// TODO Auto-generated method stub
-		MemberVO result = sqlSession.selectOne(NAMESPACE+".loginSuc",vo);
+		MemberVO result = sqlSession.selectOne(NAMESPACE+".loginUserInfo",vo);
 		return result;
 	}
 

@@ -8,7 +8,7 @@
 	<resultMap type="kr.co.domain.BoardVO" id="boardResult">
 		<result column="BNO" property="bno" />
 		<result column="TITLE" property="title" />
-		<result column="SSO_ID" property="ssoId" />
+		<result column="USER_ID" property="userId" />
 		<result column="USER_NAME" property="userName" />
 		<result column="REG_DATE" property="regDate" />
 		<result column="UPDATE_DATE" property="updateDate" />
@@ -29,7 +29,7 @@
 		SELECT
 		 BNO,
 		 TITLE,
-		 SSO_ID,
+		 USER_ID,
 		 USER_NAME,
 		 REG_DATE,
 		 UPDATE_DATE,
@@ -68,8 +68,8 @@
 	</select>
 
 	<insert id="create">
-		INSERT INTO TBL_BOARD (BNO, TITLE, CONTENT, SSO_ID, DELETE_YN,BOARD_TYPE)
-		VALUES (#{bno}, #{title}, #{content}, #{ssoId},'N', #{boardType})
+		INSERT INTO TBL_BOARD (BNO, TITLE, CONTENT, USER_ID, DELETE_YN,BOARD_TYPE)
+		VALUES (#{bno}, #{title}, #{content}, #{userId},'N', #{boardType})
 	</insert>
 
 	<update id="update">
@@ -92,24 +92,24 @@
 				AND CONTENT LIKE CONCAT('%',#{keyword},'%')
 			</if>
 			<if test="searchType=='w'.toString()">
-				AND SSO_ID LIKE CONCAT('%',#{keyword},'%')
+				AND USER_ID LIKE CONCAT('%',#{keyword},'%')
 			</if>
 			<if test="searchType=='tc'.toString()">
 				AND (
 					 TITLE LIKE CONCAT('%',#{keyword},'%')
-					 OR SSO_ID LIKE CONCAT('%',#{keyword},'%')
+					 OR USER_ID LIKE CONCAT('%',#{keyword},'%')
 				)
 			</if>
 			<if test="searchType=='cw'.toString()">
 				AND (
 					 CONTENT LIKE CONCAT('%',#{keyword},'%')
-					 OR SSO_ID LIKE CONCAT('%',#{keyword},'%')
+					 OR USER_ID LIKE CONCAT('%',#{keyword},'%')
 				)
 			</if>
 			<if test="searchType=='tcw'.toString()">
 				AND (
 					 TITLE LIKE CONCAT('%',#{keyword},'%')
-					 OR SSO_ID LIKE CONCAT('%',#{keyword},'%')
+					 OR USER_ID LIKE CONCAT('%',#{keyword},'%')
 					 OR CONTETN LIKE CONCAT('%',#{keyword},'%')
 				)			
 			</if>
@@ -119,7 +119,7 @@
 	<select id="listSearch" resultMap="boardResult">
 	<![CDATA[ 	
 		SELECT * FROM (
-			SELECT ROWNUM RNUM, BNO, TITLE, CONTENT, SSO_ID, USER_NAME, 
+			SELECT ROWNUM RNUM, BNO, TITLE, CONTENT, USER_ID, USER_NAME, 
 				REG_DATE, UPDATE_DATE, VIEW_CNT FROM
 					(SELECT * FROM TBL_BOARD ]]> 
 				<include refid="search"></include> 

@@ -68,7 +68,7 @@
 								<div class="form-row">
 									<div class="form-group col-lg-6">
 										<label class="font-weight-bold text-dark text-2">작성자</label>
-										<input type="text" value="${vo.ssoId}" data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="ssoId" id="ssoId" readonly="readonly" required>
+										<input type="text" value="${vo.userId}" data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="userId" id="userId" readonly="readonly" required>
 									</div>
 									<div class="form-group col-lg-6">
 										<label class="font-weight-bold text-dark text-2">작성일자</label>

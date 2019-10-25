@@ -32,22 +32,22 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = {RequestMethod.GET,RequestMethod.POST})
-	public String home(HttpServletRequest request,HttpServletResponse response, Model model,MemberVO vo) {
+	public String home(HttpServletRequest request,HttpServletResponse response, Model model,MemberVO vo,HttpSession session) {
 		logger.info("Zepetto World 환영합니다.");
-		logger.info("ssoId ::: "+vo.getSsoId());
+		logger.info("userId ::: "+vo.getUserId());
 		
-		HttpSession session=request.getSession();
+		session = request.getSession();
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1. 세션 컨트롤
 
-		if(vo.getSsoId()==null || vo.getSsoId()=="") {
-			return "/index";
-		}else{
-			logger.info("Login Success");
-			MemberVO result = memberService.loginSuc(vo);
-			session.setAttribute("signedUser", vo.getSsoId());
+		//zepetto login
+		if(session != null && vo.getUserId() !=null) {
+			logger.info("Zepetto Login Success");
+			MemberVO result = memberService.loginUserInfo(vo);
+			session.setAttribute("signedUser", vo.getUserId());
 			model.addAttribute("user",result);
 			return "/index";
 		}
+		return "/index";
 	}
 	
 	

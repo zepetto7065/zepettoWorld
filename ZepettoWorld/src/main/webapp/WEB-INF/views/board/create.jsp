@@ -58,7 +58,7 @@
 								<div class="form-row">
 									<div class="form-group col-lg-6">
 										<label class="font-weight-bold text-dark text-2">작성자</label>
-										<input type="text" maxlength="100" class="form-control" name="ssoId" id="ssoId" value="${signedUser}" readonly="readonly" required>
+										<input type="text" maxlength="100" class="form-control" name="userId" id="userId" value="${signedUser}" readonly="readonly" required>
 									</div>
 									<div class="form-group col-lg-6">
 										<label class="font-weight-bold text-dark text-2">게시판 종류</label>

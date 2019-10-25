@@ -3,8 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%
-	String se = (String)session.getAttribute("signedUser");
+	String kakaoSignedUser = (String)session.getAttribute("kakaoSignedUser");
+	String zepettoSignedUser = (String)session.getAttribute("signedUser");
+	String kakaoName = (String) session.getAttribute("kakaoName");
 
+	System.out.println("kakaoName ::: "+kakaoName);
 %>	
 	
 <jsp:include page="/WEB-INF/views/header.jsp" />
@@ -132,11 +135,14 @@
 									<div class="header-nav-features header-nav-features-no-border header-nav-features-lg-show-border order-1 order-lg-2">
 										<div class="header-nav-feature header-nav-features-search d-inline-flex">
 											<div>
-											<c:if test="${signedUser ne null}">
+											<c:if test="${signedUser ne null && kakaoName eq null}">
 											${signedUser}님 환영합니다.
 											</c:if>
+											<c:if test="${signedUser ne null && kakaoName ne null}">
+											${kakaoName}님 환영합니다.
+											</c:if>
 											<c:if test="${signedUser eq null}">
-											Please Sign in
+											Please Sign in  
 											</c:if>
 											</div>
 											<div class="header-nav-features-dropdown" id="headerTopSearchDropdown">

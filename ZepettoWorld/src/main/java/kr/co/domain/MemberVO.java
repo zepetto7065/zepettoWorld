@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class MemberVO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private String ssoId;
+	private String userId;
 	private String passWord;
 	private String userName;
 	private String userAddress;
@@ -26,10 +26,10 @@ public class MemberVO implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MemberVO(String ssoId, String passWord, String userName, String userAddress, String birthDay,
+	public MemberVO(String userId, String passWord, String userName, String userAddress, String birthDay,
 			String userEmail, String phoneNum, String joinDate, String authority) {
 		super();
-		this.ssoId = ssoId;
+		this.userId = userId;
 		this.passWord = passWord;
 		this.userName = userName;
 		this.userAddress = userAddress;
@@ -40,12 +40,12 @@ public class MemberVO implements Serializable {
 		this.authority = authority;
 	}
 
-	public String getSsoId() {
-		return ssoId;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setSsoId(String ssoId) {
-		this.ssoId = ssoId;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getPassWord() {
@@ -166,7 +166,7 @@ public class MemberVO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "MemberVO [ssoId=" + ssoId + ", passWord=" + passWord + ", userName=" + userName + ", userAddress="
+		return "MemberVO [userId=" + userId + ", passWord=" + passWord + ", userName=" + userName + ", userAddress="
 				+ userAddress + ", birthDay=" + birthDay + ", userEmail=" + userEmail + ", phoneNum=" + phoneNum
 				+ ", joinDate=" + joinDate + ", authority=" + authority + ", orgName=" + orgName + ", orgCode="
 				+ orgCode + ", stateSi=" + stateSi + ", stateGu=" + stateGu + ", stateDong=" + stateDong

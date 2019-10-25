@@ -9,5 +9,5 @@ public interface MemberService {
 	int getTotalCount();
 	int checkId(String id);
 	int checkEmail(String checkEmail);
-	MemberVO loginSuc(MemberVO vo);
+	MemberVO loginUserInfo(MemberVO vo);
 }

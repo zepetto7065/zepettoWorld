@@ -26,14 +26,14 @@ public class MemberController {
 	//로그인 Success
 	@RequestMapping(value = "loginSuc", method = RequestMethod.POST)
 	public MemberVO loginSuc(HttpServletRequest request, Model model) {
-		String ssoId = request.getParameter("ssoId");
+		String userId = request.getParameter("userId");
 		String passWord = request.getParameter("passWord");
 		
 		MemberVO vo = new MemberVO();
-		vo.setSsoId(ssoId);
+		vo.setUserId(userId);
 		vo.setPassWord(passWord);
 		
-		MemberVO result = memberService.loginSuc(vo);
+		MemberVO result = memberService.loginUserInfo(vo);
 		
 		return result;
 	}

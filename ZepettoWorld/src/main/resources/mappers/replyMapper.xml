@@ -17,7 +17,7 @@
 	<resultMap type="kr.co.domain.BoardVO" id="boardResult">
 		<result column="BNO" property="bno" />
 		<result column="TITLE" property="title" />
-		<result column="SSO_ID" property="ssoId" />
+		<result column="USER_ID" property="userId" />
 		<result column="USER_NAME" property="userName" />
 		<result column="REG_DATE" property="regdate" />
 		<result column="UPDATE_DATE" property="updatedate" />

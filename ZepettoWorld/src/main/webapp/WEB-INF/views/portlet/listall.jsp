@@ -43,7 +43,7 @@
 										<c:forEach items="${list}" var="board">
 										  <tr>
 										    <td class="portlet_width"><a href="javascript:popupOpen(${board.bno})">${board.title}</a></td>
-										    <td style="text-align:center">${board.ssoId}</td>						
+										    <td style="text-align:center">${board.userId}</td>						
 										  </tr>	
 										 </c:forEach>
 										 	

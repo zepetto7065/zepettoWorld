@@ -58,6 +58,8 @@
         <beans:property name="location" value="/WEB-INF/config/config.properties"/>
     </beans:bean>
 
+	<!-- NaverLoginBO Class에 대한 Bean 설정 -->
+	<beans:bean id="naverLoginBO" class="kr.co.bo.NaverLoginBO" />
 
 
 

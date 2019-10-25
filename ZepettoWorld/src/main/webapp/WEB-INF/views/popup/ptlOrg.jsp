@@ -14,26 +14,25 @@
 	.org_dept{
 		display:inline-block;
 		height:100%;
-		border: 1px ridge #000000;
+		border: 2px ridge #000000;
 		width : 25%;
 		float:left;
 	}
 	.org_dept_list{
 		display:inline-block;
 		height:100%;
-		border: 1px ridge #000000;
+		border: 2px ridge #000000;
 		width : 25%
 	}
 	.org_dept_user{
 		display:inline-block;
 		height:100%;
-		border: 1px ridge #000000;
+		border: 2px ridge #000000;
 		width : 49%;
 		float:right;
 	}
 	.org_area{
 		height:90%;
-		border: 1px ridge #000000;
 	}
 	.org_headline{
 	font-style: oblique;
@@ -58,7 +57,7 @@
 		<div class="org_dept_list">
 			<div id="userList">
 			
-									<div id="userSelectList">
+									<div id="userSelectList" style="padding-left:2px">
 								
 									</div>
 			</div>
@@ -68,7 +67,7 @@
 			<div class="container py-2">
 					<div class="row">
 						<div>
-							<img style="width:40%" src="${pageContext.request.contextPath}/resources/img/noImageMan.jpeg">
+							<img style="width:40%;padding-left:3px" src="${pageContext.request.contextPath}/resources/img/noImageMan.jpeg">
 						</div>
 						<div class="col-lg-9" id="userDetailList">
 

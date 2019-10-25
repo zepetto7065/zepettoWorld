@@ -7,7 +7,7 @@ public class BoardVO implements Serializable {
 
 	private int bno;
 	private String title;
-	private String ssoId;
+	private String userId;
 	private String userName;
 	private String regDate;
 	private String updateDate;
@@ -23,12 +23,12 @@ public class BoardVO implements Serializable {
 
 	
 	
-	public BoardVO(int bno, String title, String ssoId, String userName, String regDate, String updateDate,
+	public BoardVO(int bno, String title, String userId, String userName, String regDate, String updateDate,
 			String content, int viewCnt, String deleteYn, int replyCnt, String boardType) {
 		super();
 		this.bno = bno;
 		this.title = title;
-		this.ssoId = ssoId;
+		this.userId = userId;
 		this.userName = userName;
 		this.regDate = regDate;
 		this.updateDate = updateDate;
@@ -57,12 +57,12 @@ public class BoardVO implements Serializable {
 		this.title = title;
 	}
 
-	public String getSsoId() {
-		return ssoId;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setSsoId(String ssoId) {
-		this.ssoId = ssoId;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getUserName() {
@@ -132,7 +132,7 @@ public class BoardVO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "BoardVO [bno=" + bno + ", title=" + title + ", ssoId=" + ssoId + ", userName=" + userName + ", regDate="
+		return "BoardVO [bno=" + bno + ", title=" + title + ", userId=" + userId + ", userName=" + userName + ", regDate="
 				+ regDate + ", updateDate=" + updateDate + ", content=" + content + ", viewCnt=" + viewCnt
 				+ ", deleteYn=" + deleteYn + ", replyCnt=" + replyCnt + ", boardType=" + boardType + "]";
 	}

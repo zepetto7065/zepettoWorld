@@ -4,10 +4,10 @@
 <jsp:include page="/WEB-INF/views/header.jsp" />
 <!DOCTYPE html>
 <%
-	String ssoId = (String)session.getAttribute("signedUser");
+	String userId = (String)session.getAttribute("signedUser");
 
 	String boardType = (String) request.getAttribute("boardType");
-	System.out.println("ssoId::::"+ssoId);
+
 %>
 <html>
 	<body>
@@ -68,7 +68,7 @@
 													</a>
 													<span class="badge bn-teal"><i class="fa fa-comment-o"></i> + ${board.replyCnt}</span>
 												</td>
-												<td style="text-align: center">${board.ssoId}</td>
+												<td style="text-align: center">${board.userId}</td>
 												<td style="text-align: center">${board.regDate}</td>
 												<td style="text-align: center">${board.viewCnt}</td>
 											</tr>

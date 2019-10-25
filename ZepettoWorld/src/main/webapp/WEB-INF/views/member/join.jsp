@@ -18,7 +18,7 @@
 	
 				var form = document.userInfo;
 	
-				if (!form.ssoId.value) {
+				if (!form.userId.value) {
 					alert("아이디를 입력하세요.");
 					return false;
 				}
@@ -155,8 +155,8 @@
 			function openIdChk() {
 	
 				window.name = "parentForm";
-				var ssoId = $("input[name=ssoId]").val();
-				window.open("/idCheckForm?ssoId=" + ssoId, "chkForm",
+				var userId = $("input[name=userId]").val();
+				window.open("/idCheckForm?userId=" + userId, "chkForm",
 						"width=500, height=300, resizable = no, scrollbars = no");
 			}
 	
@@ -184,9 +184,9 @@
 				<form onsubmit="return checkValue()" action="/member/join" method="post" name="userInfo">
 					<div class="form-group">
 				
-						<label for="ssoId">아이디</label>
+						<label for="userId">아이디</label>
 						<div style="display:flex">
-						<input type="text" maxlength="50" required="required" class="form-control" name="ssoId" id="ssoId"
+						<input type="text" maxlength="50" required="required" class="form-control" name="userId" id="userId"
 							onkeydown="inputIdChk()"> 
 							<input type="button" class="btn btn-info" value="중복확인" onclick="openIdChk()">
 							<input type="hidden" name="idDuplication" value="idUncheck">
@@ -319,7 +319,7 @@
 							    <div class="form-group row">
 							        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">ID</label>
 							        <div class="col-lg-7">
-							            <input class="form-control" name="ssoId" id="ssoId" onkeydown="inputIdChk()" placeholder="사용하실 ID를 입력해주세요">
+							            <input class="form-control" name="userId" id="userId" onkeydown="inputIdChk()" placeholder="사용하실 ID를 입력해주세요">
 									</div>
 									<div class="col-lg-2">
 										<input type="button" class="btn btn-info" value="중복확인" onclick="openIdChk()">

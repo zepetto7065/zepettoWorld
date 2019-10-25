@@ -53,7 +53,7 @@
 							<td>${board.bno}</td>
 							<td><a
 								href="/sboard/read?bno=${board.bno}&page=${pm.cri.page}&perPage=${pm.cri.perPage}&searchType=${pm.cri.searchType}&keyword=${pm.cri.keyword}">${board.title}</a></td>
-							<td>${board.userName}/${board.ssoId}</td>
+							<td>${board.userName}/${board.userId}</td>
 							<td>${board.regdate}</td>
 							<td>${board.viewcnt}</td>
 						</tr>

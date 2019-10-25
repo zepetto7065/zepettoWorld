@@ -12,7 +12,7 @@
 	</resultMap>
 	
 	<resultMap type="kr.co.domain.MemberVO" id="memberResult">
-		<result column="SSO_ID" property="ssoId" />
+		<result column="USER_ID" property="userId" />
 		<result column="PASSWORD" property="passWord" />
 		<result column="USER_NAME" property="userName" />
 		<result column="USER_ADDRESS" property="userAddress" />

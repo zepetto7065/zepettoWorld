@@ -15,7 +15,7 @@
             // 중복체크 결과인 idCheck 값을 전달한다.
             opener.document.userInfo.idDuplication.value ="idCheck";
             // 회원가입 화면의 ID입력란에 값을 전달
-            opener.document.userInfo.ssoId.value = document.getElementById("checkText").value;
+            opener.document.userInfo.userId.value = document.getElementById("checkText").value;
             
             if (opener != null) {
                 opener.chkForm = null;
@@ -50,7 +50,7 @@
 
 <script type="text/javascript">
 	
-		var checkId = '${param.ssoId}';
+		var checkId = '${param.userId}';
 
 		
 		$(document).ready(function() {	

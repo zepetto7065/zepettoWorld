@@ -27,24 +27,7 @@ public class OrgController {
 		return "/popup/ptlOrg";
 	}
 	
-	@RequestMapping(value = "org_org", method = RequestMethod.GET)
-	public String org() {
-		return "/popup/org_org";
-	}	
-	@RequestMapping(value = "org_list", method = RequestMethod.GET)
-	public String orgList() {
-		return "/popup/org_list";
-	}	
-	@RequestMapping(value = "org_detail", method = RequestMethod.GET)
-	public String orgDetail() {
-		return "/popup/org_detail";
-	}	
-	@RequestMapping(value = "org_dlist", method = RequestMethod.GET)
-	public String orgDlist() {
-		return "/popup/org_dlist";
-	}	
 
-	
 	@RequestMapping(value = "orgList", method = RequestMethod.GET)
 	public @ResponseBody JSONArray orgOrgList() throws Exception {
 		// 모든 메뉴를 추출하여 가져온다.

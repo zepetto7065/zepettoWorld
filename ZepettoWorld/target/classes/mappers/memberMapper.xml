@@ -6,7 +6,7 @@
 <mapper namespace="kr.co.ca.MemberMapper">
 
 	<resultMap type="kr.co.domain.MemberVO" id="memberResult">
-		<result column="SSO_ID" property="ssoId" />
+		<result column="USER_ID" property="userId" />
 		<result column="PASSWORD" property="passWord" />
 		<result column="USER_NAME" property="userName" />
 		<result column="USER_ADDRESS" property="userAddress" />
@@ -26,20 +26,20 @@
 	<insert id="join">
 		INSERT INTO TBL_MEMBER (SSO_ID, PASSWORD,
 		USER_NAME,USER_ADDRESS,BIRTH_DAY,USER_EMAIL,PHONE_NUM)
-		VALUES (#{ssoId}, #{passWord}, #{userName},#{userAddress},
+		VALUES (#{userId}, #{passWord}, #{userName},#{userAddress},
 		#{birthDay},#{userEmail},#{phoneNum})
 	</insert>
 
 	<select id="checkId" resultType="String">
-		SELECT SSO_ID FROM TBL_MEMBER WHERE SSO_ID = #{ssoId}
+		SELECT SSO_ID FROM TBL_MEMBER WHERE SSO_ID = #{userId}
 	</select>
 	
 	<select id="checkEmail" resultType="String">
 		SELECT USER_EMAIL FROM TBL_MEMBER WHERE USER_EMAIL = #{email}
 	</select>
 	
-	<select id="loginSuc" resultMap="memberResult">
-		SELECT * FROM TBL_MEMBER WHERE SSO_ID = #{ssoId} AND PASSWORD = #{passWord}
+	<select id="loginUserInfo" resultMap="memberResult">
+		SELECT * FROM TBL_MEMBER WHERE SSO_ID = #{userId} AND PASSWORD = #{passWord}
 	</select>
 	
 </mapper>	
