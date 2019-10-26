@@ -116,7 +116,7 @@ public class LoginController {
 	//kako oauth2.0 처리 controller
 	@RequestMapping(value = "kakaoCallback", method = RequestMethod.GET)
 	public void kakaoCallback(@RequestParam("code")String code,RedirectAttributes ra,HttpSession session,HttpServletRequest response,Model model) {
-		System.out.println("kakao code : "+code);
+		logger.info("kakao code : "+code);
 		JsonNode jsonToken = KakaoAccessToken.getKakaoAccessToken(code);
 		JsonNode accessToken = jsonToken.get("access_token");
 		
@@ -131,24 +131,25 @@ public class LoginController {
 		JsonNode properties = userInfo.path("properties");
 		JsonNode kakao_account = userInfo.path("kakao_account");
 		
-		name = properties.path("nickname").asText();
+		name = properties.path("nickname").asText()+"(Kakao)";
 		email = kakao_account.path("email").asText();
 		
-		System.out.println("properties:::"+properties.toString());
-		System.out.println("kakao_account:::"+kakao_account.toString());
-		System.out.println("id : "+id);
-		System.out.println("name : "+name);
-		System.out.println("email : "+email);
+		logger.info("properties:::"+properties.toString());
+		logger.info("kakao_account:::"+kakao_account.toString());
+		logger.info("id : "+id);
+		logger.info("name : "+name);
+		logger.info("email : "+email);
 
 		model.addAttribute("user",id);
 		model.addAttribute("userType","kakaoUser");
+		model.addAttribute("userName",name);
 	}
 
 	
 	
 	
-	@RequestMapping(value = "callback", method ={ RequestMethod.GET,RequestMethod.POST})
-	public String navLogin(Model model, @RequestParam String code, @RequestParam String state, HttpSession session, HttpServletRequest reqeust) throws IOException, ParseException {
+	@RequestMapping(value = "naverCallback", method ={ RequestMethod.GET,RequestMethod.POST})
+	public void navLogin(Model model, @RequestParam String code, @RequestParam String state, HttpSession session, HttpServletRequest reqeust) throws IOException, ParseException {
 		System.out.println("Callback 입니다.");
 		OAuth2AccessToken oauthToken;
 		oauthToken = naverLoginBO.getAccessToken(session, code, state);
@@ -169,16 +170,14 @@ public class LoginController {
 		//3.데이터 파싱
 		JSONObject response_obj = (JSONObject)jsonObj.get("response");
 		//response의 nickname값 파싱
-		String nickname = (String)response_obj.get("nickname");
-		
-		System.out.println("nickname ::::"+nickname);
+		String email = (String)response_obj.get("email");
+		String userName = (String)response_obj.get("name")+"(naver)";
 
-		//4.파싱 닉네임 세션에 저장
-		session.setAttribute("naverSessionId", nickname);
+
+		model.addAttribute("user",email);
+		model.addAttribute("userName",userName);
+		model.addAttribute("userType","naverUser");
 		
-		model.addAttribute("result",apiResult);
-		
-		return "redirect:/";
 	}
 
 	

@@ -93,8 +93,14 @@
 
 	
 	<script type="text/javascript">
-
-</script>
+  	var naver_id_login = new naver_id_login("oa1OAdQlnUlDOlhkDTzi", "http://127.0.0.1:8080/login/naverCallback");
+  	var state = naver_id_login.getUniqState();
+  	naver_id_login.setButton("white", 2,40);
+  	naver_id_login.setDomain("http://127.0.0.1:8080/login/login");
+  	naver_id_login.setState(state);
+  	naver_id_login.setPopup();
+  	naver_id_login.init_naver_id_login();
+  </script>
 	
 </body>
 </html>

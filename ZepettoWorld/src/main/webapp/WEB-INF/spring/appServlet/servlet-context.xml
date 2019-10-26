@@ -79,6 +79,7 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/login/loginPost"/>
 			<mvc:mapping path="/login/kakaoCallback"/>
+			<mvc:mapping path="/login/naverCallback"/>
 			<beans:ref bean="LoginInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>

@@ -56,18 +56,18 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			
 			httpSession.setAttribute("signedUser", vo);
 			httpSession.setAttribute("signedUserName", vo.getUserName());
-			modelAndView.setViewName("/index");
 			//response.sendRedirect("/");
 
-		}else if(userType.equals("kakaoUser")) {	//kakao Oauth Login
-			logger.info("new kakao login success");
+		}else if(userType.equals("kakaoUser") || userType.equals("naverUser")) {	//kakao Oauth Login
+			logger.info("new Oauth login success");
 
 			httpSession.setAttribute("signedUser", modelMap.get("user") );
 			httpSession.setAttribute("signedUserName", modelMap.get("userName"));
-			modelAndView.setViewName("/index");
 		}
+	
 		
-		
+		modelAndView.setViewName("/index");
+
 	}
 	
 }
