@@ -100,6 +100,7 @@
 								<a class="link-black text-lg"><i class="fa fa-pencil"></i>댓글작성</a>
 							</div>
 						</div>
+						<c:if test="${signedUser ne null}">
 						<div class="box-body">
 							<form class="form-horizontal">
 								<div class="form-group margin">
@@ -108,7 +109,7 @@
 									</div>
 									<div>
 									<div class="col-sm-2" style="display:inline-block">
-										<input class="form-control" id="newReplyWriter" type="text" placeholder="댓글작성자">
+										<input class="form-control" id="newReplyWriter" type="text" placeholder="${signedUserName}" readonly="readonly">
 									</div>
 									<div class="col-sm-2" style="display:inline-block">
 										<button type="button" class="btn btn-secondary btn-block replyAddBtn"><i class="fa fa-save"></i> 저장</button>
@@ -118,7 +119,14 @@
 
 								</div>
 							</form>
-						</div>		
+						</div>
+						</c:if>	
+						<c:if test="${signedUser eq null}">
+						<div class="col-sm-10">
+							<textarea class="form-control" id="newReplyText" rows="3" placeholder="로그인 이후 작성 가능합니다." readonly style="resize:none"></textarea>
+						</div>
+						<br>
+						</c:if>
 					</div>
 					
 					<div class="row">

@@ -36,17 +36,8 @@ public class HomeController {
 		logger.info("Zepetto World 환영합니다.");
 		logger.info("userId ::: "+vo.getUserId());
 		
-		session = request.getSession();
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1. 세션 컨트롤
 
-		//zepetto login
-		if(session != null && vo.getUserId() !=null) {
-			logger.info("Zepetto Login Success");
-			MemberVO result = memberService.loginUserInfo(vo);
-			session.setAttribute("signedUser", vo.getUserId());
-			model.addAttribute("user",result);
-			return "/index";
-		}
 		return "/index";
 	}
 	

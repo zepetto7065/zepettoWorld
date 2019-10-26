@@ -58,7 +58,8 @@ public class LoginController {
 	public String loginGet(Model model,HttpSession session) {
 		//네이버 아이디로 인증 URL 생성하기 위해 naverLoginBO클래스의 getAuthorizationUrl 메소드 호출
 		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
-		String kakaoAuthUrl = "https://kauth.kakao.com/oauth/authorize?client_id=18d418cd0b07d42fa9cb653c268ea446&redirect_uri=http://localhost:8080/login/kakaoCallback&response_type=code";
+		//String kakaoAuthUrl = "https://kauth.kakao.com/oauth/authorize?client_id=18d418cd0b07d42fa9cb653c268ea446&redirect_uri=http://localhost:8080/login/kakaoCallback&response_type=code";
+		String kakaoAuthUrl = "https://kauth.kakao.com/oauth/authorize?client_id=18d418cd0b07d42fa9cb653c268ea446&redirect_uri=http://zepettoworld.com/login/kakaoCallback&response_type=code";
 		
 		System.out.println("네이버 인증 URL :::"+naverAuthUrl);
 		
@@ -106,17 +107,33 @@ public class LoginController {
 	
 	//로그인 진행
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String loginPost(MemberVO vo) {
-		memberService.loginUserInfo(vo);
+	public String loginPost(MemberVO vo,Model model,HttpSession session) {
+		MemberVO result =  memberService.loginUserInfo(vo);
 		
-		return "redirect:/";
+		if(result != null) {
+			
+			
+			session.setAttribute("signedUser", result.getUserId());
+			session.setAttribute("signedUserName", result.getUserName());
+			model.addAttribute("user",result);
+				
+		}else {
+			logger.info("Zepetto Login Fail");
+			
+			return "/";
+		}
+		
+		
+		
+		
+		
+		return "/index";
 	}
 	
 	//로그아웃 세션 처리
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
-		session.invalidate();
-		return "redirect:/";
+		return "/login/logout";
 	}
 	
 	
@@ -164,7 +181,7 @@ public class LoginController {
 		System.out.println("email : "+email);
 	
 		session.setAttribute("signedUser", id);
-		session.setAttribute("kakaoName",name);
+		session.setAttribute("signedUserName",name+"(Kakao)");
 		
 		
 		return "/index";

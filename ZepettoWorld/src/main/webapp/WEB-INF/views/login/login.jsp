@@ -35,10 +35,10 @@
 									<div class="col-md-6">
 										<div class="featured-box featured-box-primary text-left mt-5">
 											<div class="box-content">
-												<form action="/" name="loginInfo" method="post" class="needs-validation">
+												<form action="/login/login" name="loginInfo" method="post" class="needs-validation">
 													<div class="form-row">
 														<div class="form-group col">
-															<input type="text" name="ssoId" id="ssoId" class="form-control form-control-lg" required placeholder="아이디">
+															<input type="text" name="userId" id="userId" class="form-control form-control-lg" required placeholder="아이디">
 														</div>
 													</div>
 													<div class="form-row">
@@ -64,6 +64,20 @@
 									</div>
 								
 								</div>
+														
+								<!-- 카카오 로그인 창으로 이동 -->
+								<div>
+							    <a href="${kakaoAuthUrl}">
+						            <img src="${pageContext.request.contextPath}/resources/img/login/kakao_account_login_btn_medium_narrow.png">
+						        </a>
+						        </div>			
+						        <br>			
+						       	<!-- 네이버 로그인 창으로 이동 -->
+								<div id="naver_id_login">
+								<a href="${url}">
+								<img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/>
+								</a>
+								</div>
 
 							</div>
 						</div>
@@ -75,35 +89,7 @@
 			</div>
 			
 			<!-- oauth2.0 test area -->
-			
-			
-				<c:choose>
-				<c:when test="${naverSessionId != null}">
-				<h2> 네이버 아이디 로그인 성공하셨습니다!! </h2>
-				<h3>'${naverSessionId}' 님 환영합니다! </h3>
-				<h3><a href="logout">로그아웃</a></h3>
-				</c:when>
-				<c:otherwise>
-				<form action="/login/login" method="post" name="frm" style="width:470px;">
-				<h2>로그인</h2>
-				<input type="text" name="id" id="id" class="w3-input w3-border" placeholder="아이디" value="${id}"> <br>
-				<input type="password" id="pwd" name="pwd" class="w3-input w3-border" placeholder="비밀번호" > <br>
-				</form>
-				<br>
-				<!-- 네이버 로그인 창으로 이동 -->
-				<div id="naver_id_login" style="text-align:center"><a href="${url}">
-				<img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a></div>
-				<br>
-				
-				<!-- 카카오 로그인 창으로 이동 -->
-			    <a href="${kakaoAuthUrl}">
-		            <img src="${pageContext.request.contextPath}/resources/img/login/kakao_account_login_btn_medium_narrow.png">
-		        </a>
-   
-				</c:otherwise>
-				</c:choose>
 
-		
 
 	
 	<script type="text/javascript">

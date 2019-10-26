@@ -58,13 +58,13 @@
 								<div class="form-row">
 									<div class="form-group col-lg-6">
 										<label class="font-weight-bold text-dark text-2">작성자</label>
-										<input type="text" maxlength="100" class="form-control" name="userId" id="userId" value="${signedUser}" readonly="readonly" required>
+										<input type="text" maxlength="100" class="form-control" name="userId" id="userId" value="${signedUserName}" readonly="readonly" required>
 									</div>
 									<div class="form-group col-lg-6">
 										<label class="font-weight-bold text-dark text-2">게시판 종류</label>
 										<select class="form-control" maxlength="100" name="boardType" id="boardType">
 											<option value="">게시판 종류</option>
-											<c:if test="${signedUser eq 'admin'}">
+											<c:if test="${signedUserName eq 'admin'}">
 											<option value="a">공지사항</option>									
 											</c:if>
 											<option value="q">QnA</option>

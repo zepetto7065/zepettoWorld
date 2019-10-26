@@ -31,7 +31,7 @@
 	</insert>
 
 	<select id="checkId" resultType="String">
-		SELECT SSO_ID FROM TBL_MEMBER WHERE SSO_ID = #{userId}
+		SELECT USER_ID FROM TBL_MEMBER WHERE SSO_ID = #{userId}
 	</select>
 	
 	<select id="checkEmail" resultType="String">
@@ -39,7 +39,7 @@
 	</select>
 	
 	<select id="loginUserInfo" resultMap="memberResult">
-		SELECT * FROM TBL_MEMBER WHERE SSO_ID = #{userId} AND PASSWORD = #{passWord}
+		SELECT * FROM TBL_MEMBER WHERE USER_ID = #{userId} AND PASSWORD = #{passWord}
 	</select>
 	
 </mapper>	
