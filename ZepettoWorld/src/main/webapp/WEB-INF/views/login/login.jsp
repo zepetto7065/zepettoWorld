@@ -35,7 +35,7 @@
 									<div class="col-md-6">
 										<div class="featured-box featured-box-primary text-left mt-5">
 											<div class="box-content">
-												<form action="/login/login" name="loginInfo" method="post" class="needs-validation">
+												<form action="/login/loginPost" name="loginInfo" method="post" class="needs-validation">
 													<div class="form-row">
 														<div class="form-group col">
 															<input type="text" name="userId" id="userId" class="form-control form-control-lg" required placeholder="아이디">
@@ -74,7 +74,7 @@
 						        <br>			
 						       	<!-- 네이버 로그인 창으로 이동 -->
 								<div id="naver_id_login">
-								<a href="${url}">
+								<a href="${naverAuthUrl}">
 								<img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/>
 								</a>
 								</div>

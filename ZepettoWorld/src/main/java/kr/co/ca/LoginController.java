@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
@@ -58,16 +59,92 @@ public class LoginController {
 	public String loginGet(Model model,HttpSession session) {
 		//네이버 아이디로 인증 URL 생성하기 위해 naverLoginBO클래스의 getAuthorizationUrl 메소드 호출
 		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
-		//String kakaoAuthUrl = "https://kauth.kakao.com/oauth/authorize?client_id=18d418cd0b07d42fa9cb653c268ea446&redirect_uri=http://localhost:8080/login/kakaoCallback&response_type=code";
-		String kakaoAuthUrl = "https://kauth.kakao.com/oauth/authorize?client_id=18d418cd0b07d42fa9cb653c268ea446&redirect_uri=http://zepettoworld.com/login/kakaoCallback&response_type=code";
+		String kakaoAuthUrl = "https://kauth.kakao.com/oauth/authorize?client_id=18d418cd0b07d42fa9cb653c268ea446&redirect_uri=http://localhost:8080/login/kakaoCallback&response_type=code";
+		//String kakaoAuthUrl = "https://kauth.kakao.com/oauth/authorize?client_id=18d418cd0b07d42fa9cb653c268ea446&redirect_uri=http://zepettoworld.com/login/kakaoCallback&response_type=code";
 		
 		System.out.println("네이버 인증 URL :::"+naverAuthUrl);
 		
-		model.addAttribute("url",naverAuthUrl);
+		model.addAttribute("naverAuthUrl",naverAuthUrl);
 		model.addAttribute("kakaoAuthUrl",kakaoAuthUrl);
 		
 		return "/login/login";
 	}
+
+	//로그인 진행
+	@RequestMapping(value = "loginPost", method = RequestMethod.POST)
+	public void loginPost(MemberVO vo,Model model,HttpSession session) {
+		MemberVO result =  memberService.loginUserInfo(vo); 
+		
+		System.out.println("login Post!");
+		
+		model.addAttribute("user",result);
+		model.addAttribute("userType","zepettoUser");
+		
+
+	}
+	
+	//로그아웃 세션 처리
+	@RequestMapping(value = "logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest request, HttpServletResponse response, HttpSession httpSession) {
+		Object object = httpSession.getAttribute("signedUser");
+		if(object != null) {
+			httpSession.removeAttribute("signedUser");
+			httpSession.removeAttribute("signedUserName");
+			httpSession.invalidate();			
+		}
+		
+		return "/login/logout";
+	}
+	
+	
+	@RequestMapping(value = "loginFail", method = RequestMethod.GET)
+	public String loginFail() {
+		return "/login/loginFail";
+	}
+	
+	@RequestMapping(value = "loginAccessDenied", method = RequestMethod.GET)
+	public String loginAccessDenied() {
+		return "/login/loginAccessDenied";
+	}
+	
+	@RequestMapping(value = "testLogin", method = RequestMethod.GET)
+	public String isComplete(HttpSession session) {
+		return "/login/naverLogin";
+	}
+	
+	
+	//kako oauth2.0 처리 controller
+	@RequestMapping(value = "kakaoCallback", method = RequestMethod.GET)
+	public void kakaoCallback(@RequestParam("code")String code,RedirectAttributes ra,HttpSession session,HttpServletRequest response,Model model) {
+		System.out.println("kakao code : "+code);
+		JsonNode jsonToken = KakaoAccessToken.getKakaoAccessToken(code);
+		JsonNode accessToken = jsonToken.get("access_token");
+		
+		JsonNode userInfo = KakaoUserInfo.getKakaoUserInfo(accessToken);
+		
+		//get id
+		String id = userInfo.path("id").asText();
+		String name = "";
+		String email = "";
+		
+		//유저정보 카카오에서 가져오기
+		JsonNode properties = userInfo.path("properties");
+		JsonNode kakao_account = userInfo.path("kakao_account");
+		
+		name = properties.path("nickname").asText();
+		email = kakao_account.path("email").asText();
+		
+		System.out.println("properties:::"+properties.toString());
+		System.out.println("kakao_account:::"+kakao_account.toString());
+		System.out.println("id : "+id);
+		System.out.println("name : "+name);
+		System.out.println("email : "+email);
+
+		model.addAttribute("user",id);
+		model.addAttribute("userType","kakaoUser");
+	}
+
+	
 	
 	
 	@RequestMapping(value = "callback", method ={ RequestMethod.GET,RequestMethod.POST})
@@ -104,90 +181,6 @@ public class LoginController {
 		return "redirect:/";
 	}
 
-	
-	//로그인 진행
-	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String loginPost(MemberVO vo,Model model,HttpSession session) {
-		MemberVO result =  memberService.loginUserInfo(vo);
-		
-		if(result != null) {
-			
-			
-			session.setAttribute("signedUser", result.getUserId());
-			session.setAttribute("signedUserName", result.getUserName());
-			model.addAttribute("user",result);
-				
-		}else {
-			logger.info("Zepetto Login Fail");
-			
-			return "/";
-		}
-		
-		
-		
-		
-		
-		return "/index";
-	}
-	
-	//로그아웃 세션 처리
-	@RequestMapping(value = "logout", method = RequestMethod.GET)
-	public String logout(HttpSession session) {
-		return "/login/logout";
-	}
-	
-	
-	@RequestMapping(value = "loginFail", method = RequestMethod.GET)
-	public String loginFail() {
-		return "/login/loginFail";
-	}
-	
-	@RequestMapping(value = "loginAccessDenied", method = RequestMethod.GET)
-	public String loginAccessDenied() {
-		return "/login/loginAccessDenied";
-	}
-	
-	@RequestMapping(value = "testLogin", method = RequestMethod.GET)
-	public String isComplete(HttpSession session) {
-		return "/login/naverLogin";
-	}
-	
-	
-	//kako oauth2.0 처리 controller
-	@RequestMapping(value = "kakaoCallback", method = RequestMethod.GET)
-	public String kakaoCallback(@RequestParam("code")String code,RedirectAttributes ra,HttpSession session,HttpServletRequest response,Model model) {
-		System.out.println("kakao code : "+code);
-		JsonNode jsonToken = KakaoAccessToken.getKakaoAccessToken(code);
-		JsonNode accessToken = jsonToken.get("access_token");
-		
-		JsonNode userInfo = KakaoUserInfo.getKakaoUserInfo(accessToken);
-		
-		//get id
-		String id = userInfo.path("id").asText();
-		String name = "";
-		String email = "";
-		
-		//유저정보 카카오에서 가져오기
-		JsonNode properties = userInfo.path("properties");
-		JsonNode kakao_account = userInfo.path("kakao_account");
-		
-		name = properties.path("nickname").asText();
-		email = kakao_account.path("email").asText();
-		
-		System.out.println("properties:::"+properties.toString());
-		System.out.println("kakao_account:::"+kakao_account.toString());
-		System.out.println("id : "+id);
-		System.out.println("name : "+name);
-		System.out.println("email : "+email);
-	
-		session.setAttribute("signedUser", id);
-		session.setAttribute("signedUserName",name+"(Kakao)");
-		
-		
-		return "/index";
-	}
-
-	
 	
 	
 	

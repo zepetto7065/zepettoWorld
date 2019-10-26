@@ -37,7 +37,9 @@ public class HomeController {
 		logger.info("userId ::: "+vo.getUserId());
 		
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1. 세션 컨트롤
-
+		 response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+		 response.setHeader("Expires", "0"); // Proxies.
+		 
 		return "/index";
 	}
 	

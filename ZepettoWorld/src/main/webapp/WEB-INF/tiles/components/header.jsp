@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%
-	String kakaoSignedUser = (String)session.getAttribute("kakaoSignedUser");
+/* 	String kakaoSignedUser = (String)session.getAttribute("kakaoSignedUser");
 	String zepettoSignedUser = (String)session.getAttribute("zepettoSignedUser");
 	String signedUser = (String)session.getAttribute("signedUser");
 	String signedUserName = (String)session.getAttribute("signedUserName");
@@ -19,8 +19,9 @@
 	System.out.println(" zepettoSignedUser ::: "+zepettoSignedUser);
 	System.out.println(" signedUser ::: "+signedUser);
 	System.out.println(" signedUserName ::: "+signedUserName);
+	 */
 	
-	
+
 %>	
 	
 <jsp:include page="/WEB-INF/views/header.jsp" />

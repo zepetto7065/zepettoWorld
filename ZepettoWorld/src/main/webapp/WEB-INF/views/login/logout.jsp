@@ -7,9 +7,9 @@
 <jsp:include page="/WEB-INF/views/header.jsp"/>
 </head>
 <body>
-<%
-	session.invalidate();
-	response.sendRedirect("/");
-%>
+<script>
+	alert("로그아웃 되었습니다.")
+	document.location.href = "/";
+</script>
 </body>
 </html>

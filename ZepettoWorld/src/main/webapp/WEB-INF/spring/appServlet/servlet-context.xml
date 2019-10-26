@@ -68,10 +68,32 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/interceptor/doA"/>
-			<mvc:mapping path="/interceptor/doB"/>	
+			<mvc:mapping path="/interceptor/doB"/>
 			<beans:ref bean="sampleInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
+
+	<beans:bean id="LoginInterceptor" class="kr.co.bo.LoginInterceptor" />
 	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/login/loginPost"/>
+			<mvc:mapping path="/login/kakaoCallback"/>
+			<beans:ref bean="LoginInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	<!-- 세션 뒤로가기 방지 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+	    <mvc:mapping path="/**/*" />
+	    <beans:bean id="webContentInterceptor" class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+		<beans:property name="cacheSeconds" value="0" />
+		<beans:property name="useExpiresHeader" value="true" />
+		<beans:property name="useCacheControlHeader" value="true" />
+		<beans:property name="useCacheControlNoStore" value="true" />
+	    </beans:bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 </beans:beans>
