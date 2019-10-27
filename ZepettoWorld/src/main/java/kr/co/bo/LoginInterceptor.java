@@ -63,6 +63,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 			httpSession.setAttribute("signedUser", modelMap.get("user") );
 			httpSession.setAttribute("signedUserName", modelMap.get("userName"));
+			httpSession.setAttribute("signedUserType", userType);
 		}
 	
 		

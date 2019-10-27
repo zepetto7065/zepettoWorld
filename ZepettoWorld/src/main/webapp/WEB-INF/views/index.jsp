@@ -54,7 +54,7 @@
  								</p>
 							</div>
 						</div>
-						<div class="col-lg-2 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="450">
+						<div class="col-lg-2 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="450" style="padding-top: 10px;">
 							<a href="/overview" class="btn btn-modern btn-primary mt-1">Who is zepetto?</a>
 						</div>
 					</div>
@@ -168,17 +168,35 @@
 				</div>
 				</div>
 				
+				<div class="container py-2">
+					
+					<div class="row">
+						<div class="col">
+							<h4><a onclick="javascript:archiPopup();"><b>System Architecture</b> (클릭시 확대)</a></h4>
+						</div>
+					</div>
+					
+					<div class="row">				
+						<div class="col-lg-6">				
+							<img alt="architecture" style="width:100%" src="${pageContext.request.contextPath}/resources/img/architecture.PNG">
+						</div>
+					</div>
+					
+				</div>
+				
 
 
 
 			</div>
 	<script>
-	
-	
-		function music(){
-			var option = "width = 800px, height = 600px , top = 200 ,location = no"
-			window.open("https://www.youtube.com/watch?v=s93qHMLJiLo&list=RDs93qHMLJiLo&start_radio=1","유상문_음악",option);
+
+			
+		function archiPopup(){
+			var option = "height = screen.height , width = screen.width,fullscreen= yes"
+			window.open("${pageContext.request.contextPath}/resources/html/architecture.html","구조도",option);
 		}
+		
+		
 	</script>
 
 

@@ -83,3 +83,6 @@
 <script src="${pageContext.request.contextPath}/resources/jstree/jstree.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/jstree/themes/default/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/jstree/themes/default/style.min.css">
+
+<!-- Current Page Vendor and Views -->
+<script src="${pageContext.request.contextPath}/resources/js/examples/examples.forms.js"></script>

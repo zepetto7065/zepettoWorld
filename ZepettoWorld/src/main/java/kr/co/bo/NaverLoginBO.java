@@ -19,7 +19,7 @@ public class NaverLoginBO {
 
     private final static String CLIENT_ID = "oa1OAdQlnUlDOlhkDTzi";
     private final static String CLIENT_SECRET = "tonQqvogl8";
-   // private final static String REDIRECT_URI = "http://127.0.0.1:8080/login/naverCallback";
+    //private final static String REDIRECT_URI = "http://127.0.0.1:8080/login/naverCallback";
     private final static String REDIRECT_URI = "http://zepettoworld.com/login/naverCallback";
     /* 프로필 조회 API URL */
     private final static String PROFILE_API_URL = "https://openapi.naver.com/v1/nid/me";

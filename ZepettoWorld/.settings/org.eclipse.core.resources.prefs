@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/main/webapp/WEB-INF/tiles/components/footer.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/tiles/components/header2.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/board/listall.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/index.jsp=UTF-8
 encoding/<project>=UTF-8
