@@ -21,7 +21,7 @@
 		<!-- <property value="oracle.jdbc.driver.OracleDriver" name="driverClassName"></property>
 		<property value="jdbc:oracle:thin:@localhost:1521:xe" name="url"></property> -->
 		<property value="com.mysql.cj.jdbc.Driver" name="driverClassName"></property>
-  		<property value="jdbc:mysql://183.111.199.216:3306/zepetto7065?useSSL=false&amp;serverTimezone=UTC" name="url"></property>  
+  		<property value="jdbc:mysql://183.111.199.216:3306/zepetto7065?useSSL=false&amp;serverTimezone=UTC" name="url"></property>
      	<!-- <property value="jdbc:mysql://127.0.0.1/zepetto7065?useSSL=false&amp;serverTimezone=UTC" name="url"></property> -->
  		<property value="zepetto7065" name="username"></property>
 		<property value="welcome1" name="password"></property>
@@ -50,6 +50,23 @@
 	
 	<tx:annotation-driven/>
 	
+	<!-- 메일보내기 -->
+	
+	<bean id="mailSender" class = "org.springframework.mail.javamail.JavaMailSenderImpl">
+      <property name="host" value="smtp.gmail.com" />
+      <property name="port" value="587" />
+      <property name="username" value="zepetto.yoo@gmail.com" />
+      <property name="password" value="7065dltkdan!" />
+      <property name="javaMailProperties">
+         <props>
+               <prop key="mail.transport.protocol">smtp</prop>
+               <prop key="mail.smtp.auth">true</prop>
+               <prop key="mail.smtp.starttls.enable">true</prop>
+               <prop key="mail.debug">true</prop>
+         </props>
+      </property>
+ 
+   </bean>
 	
 	
 </beans>

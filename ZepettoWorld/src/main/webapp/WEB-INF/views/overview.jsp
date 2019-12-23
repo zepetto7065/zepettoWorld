@@ -55,7 +55,7 @@
 							</div>
 						</div>
 						<div class="col-md-5 order-md-2 mb-4 mb-lg-0 appear-animation" data-appear-animation="fadeInRightShorter">
-							<img src="${pageContext.request.contextPath}/resources/img/smyoo4.jpg" class="img-fluid mb-2" alt="">
+							<img src="${pageContext.request.contextPath}/resources/img/profile.jpg" class="img-fluid mb-2" alt="">
 						</div>
 					</div>
 				</div>
