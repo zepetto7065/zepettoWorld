@@ -30,6 +30,8 @@ public class BoardController {
 	public void listCriteria(@ModelAttribute("searchCriteria") SearchCriteria searchCriteria,String boardType, Model model) {
 		
 		logger.info("listCriteria called...........");
+
+		
 		searchCriteria.setBoardType(boardType);
 		
 		PageMaker pageMaker = new PageMaker();  // 하단 페이징 숫자 보이기
