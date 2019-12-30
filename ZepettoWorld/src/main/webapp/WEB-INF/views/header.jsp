@@ -19,7 +19,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
 
 <!-- Web Fonts  -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light%7CPlayfair+Display:400" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/resources/font/web_font.css" rel="stylesheet" type="text/css">
 
 <!-- Vendor CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css">
@@ -58,7 +58,7 @@
 <script src="${pageContext.request.contextPath}/resources/js/theme.init.js"></script>
 
 <!-- Handlebars JSTemplate -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/handlebars.min.js"></script>
 
    
 <!-- Theme CSS -->

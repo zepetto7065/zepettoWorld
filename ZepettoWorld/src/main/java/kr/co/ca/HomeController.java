@@ -55,16 +55,7 @@ public class HomeController {
 		return "/popup/idCheckForm";
 	}
 	
-	/**
-	 * @MethodName : HomeController
-	 * @author : 유상문
-	 * @since : 2019. 9. 13.
-	 * @see : Contact Me 
-	 */
-	@RequestMapping(value = "/contactMe", method = RequestMethod.GET)
-	public String contectMe() {
-		return "/contact_me";
-	}
+
 	
 	
 	/**

@@ -57,7 +57,7 @@
 														</a>
 														<ul class="dropdown-menu">
 															<li><a class="dropdown-item" href="/faq">FAQ</a></li>
-															<li><a class="dropdown-item" href="/contactMe">Contact Me</a></li>
+															<li><a class="dropdown-item" href="/mail/contactMe">Contact Me</a></li>
 														</ul>
 													</li>
 													<li class="dropdown">

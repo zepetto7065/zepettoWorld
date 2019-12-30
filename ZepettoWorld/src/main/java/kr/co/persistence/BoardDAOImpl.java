@@ -14,7 +14,6 @@ import kr.co.ca.HomeController;
 import kr.co.domain.BoardVO;
 import kr.co.domain.Criteria;
 import kr.co.domain.SearchCriteria;
-import oracle.net.aso.p;
 
 
 @Repository
