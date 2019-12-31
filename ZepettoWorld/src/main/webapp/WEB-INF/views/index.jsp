@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:include page="/WEB-INF/views/header.jsp" />
 
 <!DOCTYPE html>
 
 <html>
-
-	
+	<head>
+		<jsp:include page="/WEB-INF/views/header.jsp" />
+	</head>
 	<body>
 	
 		<div class="body">

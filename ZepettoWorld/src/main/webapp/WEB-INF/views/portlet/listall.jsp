@@ -1,21 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
-<jsp:include page="/WEB-INF/views/header.jsp" />
 <!DOCTYPE html>
 <%
 	String boardType = (String) request.getParameter("boardType");
 %>
 <html>
-<style>
-.portlet_width {
-	display: inline-block;
-	width: 200px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-</style>
+<head>
+	<jsp:include page="/WEB-INF/views/header.jsp" />
+	<style>
+	.portlet_width {
+		display: inline-block;
+		width: 200px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	</style>
+</head>
+
 	<body>
 
 		<div class="body">

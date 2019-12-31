@@ -24,14 +24,14 @@ public class MailController {
 		return "/contact_me";
 	}
 
-  	
- /**
- * @Date 2019.12.30
- * @author smyoo
- * 메일 전송 Gmail SMTP 이용한 mailSending
- */
-@RequestMapping(value = "mailSending")
-  public void mailSending(HttpServletRequest request) {
+	  	
+	 /**
+	 * @Date 2019.12.30
+	 * @author smyoo
+	 * 메일 전송 Gmail SMTP 이용한 mailSending
+	 */
+	@RequestMapping(value = "mailSending")
+  public String mailSending(HttpServletRequest request) {
   
     String setfrom = "adioson@naver.com";         
     String fromMail  = request.getParameter("fromMail");    
@@ -54,6 +54,8 @@ public class MailController {
     } catch(Exception e){
       System.out.println(e);
     }
+    
+    return "redirect:/mail/contactMe";
   }
 
   

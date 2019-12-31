@@ -22,7 +22,7 @@
 								<h2 class="font-weight-normal text-7 mt-2 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200"><strong class="font-weight-extra-bold">Contact</strong> Me</h2>
 							</div>
 							<div class="overflow-hidden mb-4 pb-3">
-								<p class="mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="400">Feel free to ask for details, don't save any questions!</p>
+								<p class="mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="400">다음 해당 빈 칸을 채워주세요.</p>
 							</div>
 
 							<form id="contactForm" class="contact-form" action="mailSending" method="POST">
@@ -72,13 +72,12 @@
 								<h4 class="pt-5">Business <strong>Hours</strong></h4>
 								<ul class="list list-icons list-dark mt-2">
 									<li><i class="far fa-clock top-6"></i> Monday - Friday - 9am to 5pm</li>
-									<li><i class="far fa-clock top-6"></i> Saturday - 9am to 2pm</li>
-									<li><i class="far fa-clock top-6"></i> Sunday - Closed</li>
+									<li><i class="far fa-clock top-6"></i> Saturday, Sunday - Closed</li>
 								</ul>
 							</div>
 
 							<h4 class="pt-5">Get in <strong>Touch</strong></h4>
-							<p class="lead mb-0 text-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget leo at velit imperdiet varius. In eu ipsum vitae velit congue iaculis vitae at risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<p class="lead mb-0 text-4">문의 사항을 메일로 보내주세요.</br> 빠른 시간안에 답변을 해드립니다. 감사합니다.</p>
 
 						</div>
 
@@ -95,6 +94,7 @@
 		
 		<script>
 		  function reload(){
+			alert("메일이 정상 발송되었습니다.");
  			window.location.reload();
 		  } 
 		

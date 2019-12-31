@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
-<jsp:include page="/WEB-INF/views/header.jsp" />
 <!DOCTYPE html>
 <%
 	String userId = (String)session.getAttribute("signedUser");
@@ -10,6 +9,9 @@
 
 %>
 <html>
+	<head>
+		<jsp:include page="/WEB-INF/views/header.jsp" />
+	</head>
 	<body>
 
 		<div class="body">
@@ -106,7 +108,7 @@
 						<div class="row">
 							<div class="box-footer">
 								<div class="form-group col-sm-2">
-									<select class="form-control" name="searchType" id="searchType" style="width:100px">
+									<select class="form-control" name="searchType" id="searchType" style="width:132px;margin:11px;">
 										<option value="n" <c:out value="${searchCriteria.searchType == null ? 'selected' : ''}"/>>선택</option>
 										<option value="t" <c:out value="${searchCriteria.searchType eq 't'? 'selected' : ''}"/>>제목</option>
 										<option value="c" <c:out value="${searchCriteria.searchType eq 'c'? 'selected' : ''}"/>>내용</option>
@@ -117,9 +119,9 @@
 									</select>
 								</div>
 							</div>
-							<div class="form-group clo-sm-10">
+							<div class="form-group clo-sm-10" style="width:50%">
 								<div class="input-group">
-									<input type="text" class="form-control" name="keyword" id="keywordInput" value="${criteria.keyword}" placeholer="검색어">
+									<input type="text" class="form-control" name="keyword" id="keywordInput" value="${criteria.keyword}" style="height:40px;margin-top:9px" placeholer="검색어">
 									<span class="input-group-btn" style=" margin:10px">
 										<button type="button" class="btn btn-primary btn-flat" id="searchBtn">
 											<i class="fa fa-search"></i>검색
