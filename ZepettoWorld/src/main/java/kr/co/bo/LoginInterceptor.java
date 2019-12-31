@@ -47,7 +47,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		ModelMap modelMap = modelAndView.getModelMap();	
 		
 		String userType = (String) modelMap.get("userType");
-		logger.info("userType :::" + userType);
 
 		// zepetto 로그인
 		if(userType.equals("zepettoUser")) {

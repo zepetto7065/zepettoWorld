@@ -62,4 +62,27 @@ public class MemberDAOImpl implements MemberDAO {
 		return result;
 	}
 
+
+	@Override
+	public int checkUser(MemberVO vo) {
+		// TODO Auto-generated method stub
+	   String checkId = sqlSession.selectOne(NAMESPACE + ".checkId",vo.getUserId());
+	   String checkPassWord = sqlSession.selectOne(NAMESPACE + ".checkPassWord",vo);
+	   
+	   int flag; //유효성 체크 플래그
+	   
+	   // 아이디와 비밀번호를 체크 후, 빈 값 체크
+	   if("".equals(checkId) || checkId == null) {
+		   flag = 0;
+	   }else if("".equals(checkPassWord) || checkPassWord == null) {
+		   flag = 1;
+	   }else {
+		   flag = 2;
+	   }
+	   
+	   System.out.println("flag :::: "+flag);
+	   
+		return flag;
+	}
+
 }

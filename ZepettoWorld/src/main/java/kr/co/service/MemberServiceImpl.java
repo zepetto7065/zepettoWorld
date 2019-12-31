@@ -51,6 +51,12 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return memberDao.checkEmail(checkEmail);
 	}
+
+	@Override
+	public int checkUser(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return memberDao.checkUser(vo);
+	}
 	
 	
 	

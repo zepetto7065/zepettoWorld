@@ -81,8 +81,21 @@ public class MemberController {
 		
 		return checkPassword;
 	}
-
-
+	
+	@ResponseBody
+	@RequestMapping(value = "checkUser", method = RequestMethod.POST)
+	public String checkUser(HttpServletRequest request) {
+		String userId = request.getParameter("userId");
+		String passWord = request.getParameter("passWord");
+		
+		MemberVO vo = new MemberVO();
+		vo.setUserId(userId);
+		vo.setPassWord(passWord);
+		
+		int flag = memberService.checkUser(vo);
+	
+		return String.valueOf(flag);
+	}
 
 	
 }
