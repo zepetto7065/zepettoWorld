@@ -12,7 +12,7 @@
 <meta name="description" content="Porto - Responsive HTML5 Template">
 <meta name="author" content="okler.net">
 <!-- Favicon -->
-<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/img/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/img/eskimo.png" type="image/x-icon" />
 <link rel="apple-touch-icon" href="${pageContext.request.contextPath}/resources/img/apple-touch-icon.png">
 
 <!-- Mobile Metas -->

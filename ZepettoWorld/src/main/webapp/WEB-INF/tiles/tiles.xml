@@ -8,6 +8,19 @@
         <put-attribute name="footer" value="/WEB-INF/tiles/components/footer.jsp" />
     </definition>
     <definition name="*/*" extends="classic">
-        <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
-    </definition>
+         <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
+ 
+<!--  		<put-attribute name="content" value="/WEB-INF/views/{1}.jsp" />
+ 		<put-attribute name="content" value="/WEB-INF/views/aboutme/{1}.jsp" />
+ 		<put-attribute name="content" value="/WEB-INF/views/board/{1}.jsp" />
+ 		<put-attribute name="content" value="/WEB-INF/views/dboard/{1}.jsp" />
+ 		<put-attribute name="content" value="/WEB-INF/views/login/{1}.jsp" />
+ 		<put-attribute name="content" value="/WEB-INF/views/mail/{1}.jsp" />
+ 		<put-attribute name="content" value="/WEB-INF/views/member/{1}.jsp" />
+ 		<put-attribute name="content" value="/WEB-INF/views/popup/{1}.jsp" />
+ 		<put-attribute name="content" value="/WEB-INF/views/portlet/{1}.jsp" />
+ 		<put-attribute name="content" value="/WEB-INF/views/sboard/{1}.jsp" />
+ 		<put-attribute name="content" value="/WEB-INF/views/tutorial/{1}.jsp" /> -->
+ 
+     </definition>
 </tiles-definitions>
