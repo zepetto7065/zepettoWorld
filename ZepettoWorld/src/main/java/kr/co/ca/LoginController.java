@@ -15,6 +15,8 @@ import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,7 +44,10 @@ public class LoginController {
 
 	@Inject
 	private MemberService memberService;
-	
+
+	@Inject
+	BCryptPasswordEncoder passwordEncoder;
+
 	/* NaverLoginBO */
 	private NaverLoginBO naverLoginBO;
 	private String apiResult = null;
@@ -73,13 +78,15 @@ public class LoginController {
 	//로그인 진행
 	@RequestMapping(value = "loginPost", method = RequestMethod.POST)
 	public void loginPost(MemberVO vo,Model model,HttpSession session) {
+			
 		MemberVO result =  memberService.loginUserInfo(vo); 
-		
+		boolean passMatch = passwordEncoder.matches(vo.getPassWord(), result.getPassWord()); //비밀번호 복호화
+
 		System.out.println("login Post!");
 		
 		model.addAttribute("user",result);
 		model.addAttribute("userType","zepettoUser");
-		
+		model.addAttribute("passMatch",passMatch);
 
 	}
 	

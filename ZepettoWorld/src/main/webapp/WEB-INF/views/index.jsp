@@ -50,7 +50,7 @@
 								<p class="lead mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="250">
 <!-- 									You will never know until <span class="alternative-font">you try.</span> &nbsp;&nbsp;&nbsp;Step by step goes a long way. Welcome to Zepetto World!
  -->
- 									개인 포트폴리오 웹사이트입니다.  Zepetto World에 오신걸 환영합니다.! <span class="alternative-font">Welcome to ZepettoWorld!</span>
+ 									개인 포트폴리오 커뮤니티 웹 사이트입니다 <span class="alternative-font"> Welcome to ZepettoWorld!</span>
  								</p>
 							</div>
 						</div>

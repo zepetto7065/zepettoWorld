@@ -49,36 +49,27 @@
 								<input type="hidden" name="keyword" value="${searchCriteria.keyword}">
 								<input type="hidden" name="page" value="${searchCriteria.page}">
 								<input type="hidden" name="perPageNum" value="${searchCriteria.perPageNum}">	
-					
-					
-								<div class="contact-form-success alert alert-success d-none mt-4" id="contactSuccess">
-									<strong>Success!</strong> Your message has been sent to us.
-								</div>
-							
-								<div class="contact-form-error alert alert-danger d-none mt-4" id="contactError">
-									<strong>Error!</strong> There was an error sending your message.
-									<span class="mail-error-message text-1 d-block" id="mailErrorMessage"></span>
-								</div>
+
 								<div class="form-row">
 									<div class="form-group col">
 										<label class="font-weight-bold text-dark text-2">제목</label>
-										<input type="text" value="${vo.title}" maxlength="100" class="form-control" name="name" id="name" required readonly="readonly">
+										<input type="text" value="${vo.title}" maxlength="100" class="form-control" name="name" id="name" readonly="readonly">
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="form-group col-lg-6">
 										<label class="font-weight-bold text-dark text-2">작성자</label>
-										<input type="text" value="${vo.userId}" data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="userId" id="userId" readonly="readonly" required>
+										<input type="text" value="${vo.userId}"  maxlength="100" class="form-control" name="userId" id="userId" readonly="readonly" >
 									</div>
 									<div class="form-group col-lg-6">
 										<label class="font-weight-bold text-dark text-2">작성일자</label>
-										<input type="text" value="${vo.regDate}" maxlength="100" class="form-control" name="subject" id="subject" readonly="readonly" required>
+										<input type="text" value="${vo.regDate}" maxlength="100" class="form-control" name="subject" id="subject" readonly="readonly" >
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="form-group col">
 										<label class="font-weight-bold text-dark text-2">내용</label>
-										<textarea maxlength="5000" data-msg-required="Please enter your message." rows="8" class="form-control" name="content" id="content" required readonly="readonly">${vo.content}</textarea>
+										<textarea maxlength="5000" rows="8" class="form-control" name="content" id="content"  readonly="readonly">${vo.content}</textarea>
 									</div>
 								</div>
 								<div class="form-group">
@@ -428,9 +419,10 @@
 			});
 
 			$(".btn-info").on("click", function() {
-				$form.attr("method", "get");
+				/* $form.attr("method", "get");
 				$form.attr("action", "/board/listall?boardType="+boardType);
-				$form.submit();
+				$form.submit(); */
+				$form.attr("href", "/board/listall?boardType="+boardType);
 			});
 
 			//getAllList(page); /* 댓글 무조건 실행 */

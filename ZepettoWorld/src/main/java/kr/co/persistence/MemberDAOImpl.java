@@ -2,6 +2,7 @@ package kr.co.persistence;
 
 import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import kr.co.domain.MemberVO;
 
@@ -13,7 +14,10 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Inject
 	private SqlSession sqlSession; // null처럼 보이지만 null이 아님 @Inject 때문에
-
+	
+	@Inject
+	BCryptPasswordEncoder passwordEncoder;	
+	
 	@Override
 	public void join(MemberVO vo) {
 		// TODO Auto-generated method stub	
@@ -69,20 +73,29 @@ public class MemberDAOImpl implements MemberDAO {
 	   String checkId = sqlSession.selectOne(NAMESPACE + ".checkId",vo.getUserId());
 	   String checkPassWord = sqlSession.selectOne(NAMESPACE + ".checkPassWord",vo);
 	   
-	   int flag; //유효성 체크 플래그
 	   
+	   boolean passMatch = passwordEncoder.matches(vo.getPassWord(), checkPassWord); //비밀번호 복호화
+	   
+	   int flag = 2; //유효성 체크 플래그
 	   // 아이디와 비밀번호를 체크 후, 빈 값 체크
-	   if("".equals(checkId) || checkId == null) {
-		   flag = 0;
-	   }else if("".equals(checkPassWord) || checkPassWord == null) {
-		   flag = 1;
-	   }else {
-		   flag = 2;
-	   }
-	   
-	   System.out.println("flag :::: "+flag);
-	   
-		return flag;
-	}
+	   try {
+		   
+		   if("".equals(checkId) || checkId == null) {
+			   flag = 0;		   
+		   }else if("".equals(checkPassWord) || checkPassWord == null || passMatch == false) {
+			   flag = 1;
+		   }else if(vo.getUserId() == checkId && passMatch == true){
+			   flag = 2;
+		   } 
+		   
 
+		   return flag;
+
+		// TODO: handle exception
+	   }catch(Exception e){
+		   e.printStackTrace();
+	   }
+	   return flag;
+
+	}
 }

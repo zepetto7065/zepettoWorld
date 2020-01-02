@@ -45,11 +45,9 @@
 									<a href="https://blog.naver.com/adioson" target="_blank" class="btn btn-modern btn-warning mt-3">My Blog</a>
 								</div>
 								<div class="col-sm-6 text-lg-right my-4 my-lg-0">
-									<strong class="text-uppercase text-1 mr-3 text-dark">follow me</strong>
+									<strong class="text-uppercase text-1 mr-3 text-dark">SNS</strong>
 									<ul class="social-icons float-lg-right">
-										<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-										<li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-										<li class="social-icons-linkedin"><a href="https://www.instagram.com/zepetto7065/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+										<li class="social-icons-linkedin"><a href="https://www.instagram.com/zepetto7065/" target="_blank" title="instagram"><i class="fab fa-linkedin-in"></i></a></li>
 									</ul>
 								</div>
 							</div>
@@ -69,7 +67,7 @@
 									<div class="box-content p-0 text-left">
 										<i class="icon-featured icon-screen-tablet icons text-12 m-0 p-0"></i>
 										<h4 class="font-weight-bold text-color-dark">Mobile Apps</h4>
-										<p class="mb-0">Mobile, Android Native App 제작</p>
+										<p class="mb-0">React, Android Native App 제작</p>
 									</div>
 								</div>
 							</div>
@@ -77,8 +75,8 @@
 								<div class="m-0 featured-box featured-box-primary featured-box-effect-4 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="1400">
 									<div class="box-content p-0 text-left">
 										<i class="icon-featured icon-layers icons text-12 m-0 p-0"></i>
-										<h4 class="font-weight-bold text-color-dark">Creative Websites</h4>
-										<p class="mb-0">정확하고 간결한 웹 사이트 Making</p>
+										<h4 class="font-weight-bold text-color-dark">Websites</h4>
+										<p class="mb-0">Spring, Nodejs를 이용한 정확한 Making</p>
 									</div>
 								</div>
 							</div>
@@ -96,7 +94,7 @@
 									<div class="box-content p-0 text-left">
 										<i class="icon-featured icon-screen-desktop icons text-12 m-0 p-0"></i>
 										<h4 class="font-weight-bold text-color-dark">Brand Solutions</h4>
-										<p class="mb-0">유일한, 그리고 독창적인 Solution</p>
+										<p class="mb-0">독창적인 Solution 개발</p>
 									</div>
 								</div>
 							</div>
@@ -111,47 +109,28 @@
 						<div class="col-md-6">
 							<div class="toggle toggle-primary toggle-simple m-0" data-plugin-toggle>
 								<section class="active mt-0">
-									<label>My Skill</label>
+									<label><b>이력</b></label>
 									<div class="toggle-content">
-										<p>기본적인 구현 가능 기술입니다. Java/Spring을 이용한 Web , PHP로 클라이언트와 서버를 통신하는 안드로이드 네이티브 앱 및 HTML/CSS, JavaScript 및 Jquery, Apache 및 IIS, Tomcat, WebLogic을 이용한 서비스 구현 가능</p>
+										<p>2018. 05 - 2018. 07 - 삼성 전자 CAE팀 Smart Portal 구축</p>										
+										<p>2018. 08 - 2018. 12 - 삼성 전자 CAE팀 DB 인터페이스 마이그레이션 작업</p>
+										<p>2019. 04 - 2019. 12 - SK 하이닉스 Systemic 중국 Wuxi Portal 구축 (현지 출장 포함)</p>
+										<p>2019. 02 - 現)씨유홀딩스 기술지원팀 주임 재직 중 </p>
 									</div>
 								</section>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<div class="progress-bars">
-								<div class="progress-label">
-									<span class="text-1">Spring</span>
-								</div>
-								<div class="progress mb-2">
-									<div class="progress-bar progress-bar-primary" data-appear-progress-animation="100%">
-										<span class="progress-bar-tooltip">100%</span>
+							<div class="toggle toggle-primary toggle-simple m-0" data-plugin-toggle>
+								<section class="active mt-0">
+									<label><b>Skill</b></label>
+									<div class="toggle-content">
+										<p>언어 : Java, Python, PHP, jQuery, Javascript 등 ( 빠르게 숙지 가능 )</p>										
+										<p>DB : Oracle, Mysql, MariaDB</p>
+										<p>Tool : DBever, Oracle sqldeveloper, eclipse, VScode, Atom, workbench ( 다양한 툴 사용 좋아함 )</p>
+										<p>기술 : Spring Framework, React, Nodejs, Android native App, Python Crowling, linux, AWS EC2 등 ( 기술 공부 좋아함 )</p>
+										<p>Solution : Oracle Webcenter Portal 11g, 12c</p>
 									</div>
-								</div>
-								<div class="progress-label">
-									<span class="text-1">Apache/IIS/Tomcat/Weblogic</span>
-								</div>
-								<div class="progress mb-2">
-									<div class="progress-bar progress-bar-primary" data-appear-progress-animation="85%" data-appear-animation-delay="300">
-										<span class="progress-bar-tooltip">85%</span>
-									</div>
-								</div>
-								<div class="progress-label">
-									<span class="text-1">Android</span>
-								</div>
-								<div class="progress mb-2">
-									<div class="progress-bar progress-bar-primary" data-appear-progress-animation="75%" data-appear-animation-delay="600">
-										<span class="progress-bar-tooltip">75%</span>
-									</div>
-								</div>
-								<div class="progress-label">
-									<span class="text-1">HTML/CSS/javascript/jQuery</span>
-								</div>
-								<div class="progress mb-2">
-									<div class="progress-bar progress-bar-primary" data-appear-progress-animation="85%" data-appear-animation-delay="900">
-										<span class="progress-bar-tooltip">85%</span>
-									</div>
-								</div>
+								</section>
 							</div>
 						</div>
 					</div>

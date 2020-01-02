@@ -24,7 +24,7 @@
 	</select>
 
 	<insert id="join">
-		INSERT INTO TBL_MEMBER (SSO_ID, PASSWORD,
+		INSERT INTO TBL_MEMBER (USER_ID, PASSWORD,
 		USER_NAME,USER_ADDRESS,BIRTH_DAY,USER_EMAIL,PHONE_NUM)
 		VALUES (#{userId}, #{passWord}, #{userName},#{userAddress},
 		#{birthDay},#{userEmail},#{phoneNum})
@@ -35,7 +35,7 @@
 	</select>
 	
 	<select id="checkPassWord" resultType="String">
-		SELECT PASSWORD FROM TBL_MEMBER WHERE USER_ID = #{userId} AND PASSWORD = #{passWord}
+		SELECT PASSWORD FROM TBL_MEMBER WHERE USER_ID = #{userId}
 	</select>
 	
 	
@@ -44,7 +44,7 @@
 	</select>
 	
 	<select id="loginUserInfo" resultMap="memberResult">
-		SELECT * FROM TBL_MEMBER WHERE USER_ID = #{userId} AND PASSWORD = #{passWord}
+		SELECT * FROM TBL_MEMBER WHERE USER_ID = #{userId}
 	</select>
 
 

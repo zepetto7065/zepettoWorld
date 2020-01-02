@@ -56,7 +56,7 @@
 									
 									<div class="col-lg-6">
 										<div class="portfolio-item">
-											<a href="portfolio-single-wide-slider.html">
+											<a href="#">
 												<span class="thumb-info thumb-info-no-zoom thumb-info-lighten border-radius-0 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="100">
 													<span class="thumb-info-wrapper border-radius-0">
 														<img src="${pageContext.request.contextPath}/resources/img/skhynixsystemic_logo.jpg" class="img-fluid border-radius-0" alt="">
@@ -95,7 +95,7 @@
 									
 									<div class="col-lg-6">
 										<div class="portfolio-item">
-											<a href="portfolio-single-wide-slider.html">
+											<a href="#">
 												<span class="thumb-info thumb-info-no-zoom thumb-info-lighten border-radius-0 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="100">
 													<span class="thumb-info-wrapper border-radius-0">
 														<img src="${pageContext.request.contextPath}/resources/img/samsung_logo.png" class="img-fluid border-radius-0" alt="">
@@ -134,7 +134,7 @@
 									
 									<div class="col-lg-6">
 										<div class="portfolio-item">
-											<a href="portfolio-single-wide-slider.html">
+											<a href="#">
 												<span class="thumb-info thumb-info-no-zoom thumb-info-lighten border-radius-0 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="100">
 													<span class="thumb-info-wrapper border-radius-0">
 														<img src="${pageContext.request.contextPath}/resources/img/samsung_logo.png" class="img-fluid border-radius-0" alt="">
@@ -174,7 +174,7 @@
 									
 									<div class="col-lg-6">
 										<div class="portfolio-item">
-											<a href="portfolio-single-wide-slider.html">
+											<a href="#">
 												<span class="thumb-info thumb-info-no-zoom thumb-info-lighten border-radius-0 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="100">
 													<span class="thumb-info-wrapper border-radius-0">
 														<img src="${pageContext.request.contextPath}/resources/img/logo.png" class="img-fluid border-radius-0" alt="">
@@ -214,7 +214,7 @@
 									
 									<div class="col-lg-6">
 										<div class="portfolio-item">
-											<a href="portfolio-single-wide-slider.html">
+											<a href="#">
 												<span class="thumb-info thumb-info-no-zoom thumb-info-lighten border-radius-0 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="100">
 													<span class="thumb-info-wrapper border-radius-0">
 														<img src="${pageContext.request.contextPath}/resources/img/projects/project-2-short.jpg" class="img-fluid border-radius-0" alt="">

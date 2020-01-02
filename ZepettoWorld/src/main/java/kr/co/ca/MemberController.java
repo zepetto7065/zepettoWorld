@@ -3,6 +3,7 @@ package kr.co.ca;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,9 @@ public class MemberController {
 	@Inject
 	private MemberService memberService;
 
-
+	@Inject
+	BCryptPasswordEncoder passwordEncoder;
+	
 	//로그인 Success
 	@RequestMapping(value = "loginSuc", method = RequestMethod.POST)
 	public MemberVO loginSuc(HttpServletRequest request, Model model) {
@@ -47,6 +50,10 @@ public class MemberController {
 	
 	@RequestMapping(value = "join", method = RequestMethod.POST)
 	public String joinPost(MemberVO vo, RedirectAttributes rttr) {
+		
+		
+		vo.setPassWord(passwordEncoder.encode(vo.getPassWord())); //비밀번호 암호화 
+
 		memberService.join(vo);
 		
 		rttr.addFlashAttribute("msg", "INSERT_SUCCESS");
