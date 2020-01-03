@@ -36,14 +36,14 @@
 						<div class="row py-4">
 
 							<div class="col-lg-7 d-flex align-items-center justify-content-center justify-content-lg-start mb-4 mb-lg-0">
-								<p>© Copyright 2019. All Rights Reserved.</p>
+								<p>© Copyright 2020. All Rights Reserved.</p>
 							</div>
 							<div class="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
 								<nav id="sub-menu">
 									<ul>
 										<li><i class="fas fa-angle-right"></i><a href="page-faq.html" class="ml-1 text-decoration-none"> FAQ's</a></li>
 										<li><i class="fas fa-angle-right"></i><a href="sitemap.html" class="ml-1 text-decoration-none"> Sitemap</a></li>
-										<li><i class="fas fa-angle-right"></i><a href="/contactMe" class="ml-1 text-decoration-none"> Contact Me</a></li>
+										<li><i class="fas fa-angle-right"></i><a href="/mail/contactMe" class="ml-1 text-decoration-none"> Contact Me</a></li>
 									</ul>
 								</nav>
 							</div>

@@ -37,10 +37,10 @@
 						<div class="col-lg-9 order-1 order-lg-2">
 							
 							<div class="overflow-hidden mb-1">
-								<h2 class="font-weight-normal text-7 mb-0"><strong class="font-weight-extra-bold">자유게시판</strong></h2>
+								<h2 class="font-weight-normal text-7 mb-0"><strong class="font-weight-extra-bold">게시판 </strong></h2>
 							</div>
 							<div class="overflow-hidden mb-4 pb-3">
-								<p class="mb-0">고객님께서 궁금해 하시는 질문에 대한 답변을 모아놓았습니다.</p>
+								<p class="mb-0">인간은 입이 하나 귀가 둘이 있다. 이는 말하기보다 듣기를 두 배 더하라는 뜻이다. - 탈무드</p>
 							</div>
 
 							<form id="readForm" class="contact-form" method="post" >
@@ -69,7 +69,7 @@
 								<div class="form-row">
 									<div class="form-group col">
 										<label class="font-weight-bold text-dark text-2">내용</label>
-										<textarea maxlength="5000" rows="8" class="form-control" name="content" id="content"  readonly="readonly">${vo.content}</textarea>
+										<textarea maxlength="5000" rows="8" class="form-control" name="content" id="content"  readonly="readonly" style="height:300px">${vo.content}</textarea>
 									</div>
 								</div>
 								<div class="form-group">

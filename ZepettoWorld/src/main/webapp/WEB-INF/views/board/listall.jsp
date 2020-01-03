@@ -1,12 +1,12 @@
+<%@page import="kr.co.domain.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <%
-	String userId = (String)session.getAttribute("signedUser");
 
 	String boardType = (String) request.getAttribute("boardType");
-
+	
 %>
 <html>
 	<head>
@@ -127,21 +127,21 @@
 											<i class="fa fa-search"></i>검색
 										</button>
 									</span>
-									<div style="float: right;">
-										<c:if test="${(boardType eq 'q' || boardType eq 'f' || boardType eq 'd') && signedUser ne null}">	
-										<a class="btn btn-outline btn-primary mb-2" href="/board/create?boardType=<%=boardType%>">
-											글쓰기
-										</a>
-										</c:if>
-										<c:if test="${signedUser eq 'admin' && boardType eq 'a'}">
-										<a class="btn btn-outline btn-primary mb-2" href="/board/create?boardType=<%=boardType%>">
-											글쓰기
-										</a>
-										</c:if>		
-									</div>
+									
 								</div>
 							</div>
-													
+							<div style="margin-top:9px">
+								<c:if test="${(boardType eq 'q' || boardType eq 'f' || boardType eq 'd') && signedUser ne null}">	
+									<a class="btn btn-outline btn-primary mb-2" href="/board/create?boardType=<%=boardType%>">
+										글쓰기
+									</a>
+								</c:if>
+								<c:if test="${signedUserAuth eq 'admin' && boardType eq 'a'}">
+									<a class="btn btn-outline btn-primary mb-2" href="/board/create?boardType=<%=boardType%>">
+										글쓰기
+									</a>
+								</c:if>		
+							</div>					
 						</div>
 						</div>
 						

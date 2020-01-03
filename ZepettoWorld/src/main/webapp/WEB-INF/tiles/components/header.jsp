@@ -60,25 +60,7 @@
 															Org
 														</a>
 													</li>
-													<c:if test="${signedUser eq null}">											
-													<li class="dropdown">
-														<a class="dropdown-item" href="/login/login">
-															Sign in
-														</a>
-													</li>
-													<li class="dropdown">
-														<a class="dropdown-item" href="/member/join">
-															Sign up
-														</a>
-													</li>
-													</c:if>
-													<c:if test="${signedUser ne null}">
-													<li class="dropdown">
-														<a class="dropdown-item" href="/login/logout">
-															Sign out
-														</a>
-													</li>
-													</c:if>
+													
 												</ul>
 											</nav>
 										</div>
@@ -88,14 +70,6 @@
 									</div>
 								<div class="header-nav-features header-nav-features-no-border header-nav-features-lg-show-border order-1 order-lg-2">
 										<div class="header-nav-feature header-nav-features-search d-inline-flex">
-											<div>
-											<c:if test="${signedUser ne null}">
-											${signedUserName}님 환영합니다.
-											</c:if>
-											<c:if test="${signedUser eq null}">
-											Please Sign in
-											</c:if>
-											</div>
 											<div class="header-nav-features-dropdown" id="headerTopSearchDropdown">
 												<form role="search" action="page-search-results.html" method="get">
 													<div class="simple-search input-group">

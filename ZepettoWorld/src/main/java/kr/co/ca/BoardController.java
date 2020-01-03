@@ -38,7 +38,6 @@ public class BoardController {
 		pageMaker.setCriteria(searchCriteria);
 		
 		pageMaker.setTotalCount(boardService.getTotalCount(searchCriteria)); //db에서 가져와야 함
-		
 		model.addAttribute("list", boardService.listCriteria(searchCriteria));
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("boardType", boardType);

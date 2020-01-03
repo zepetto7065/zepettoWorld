@@ -40,7 +40,7 @@
 							<hr class="solid my-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="900">
 							<div class="row align-items-center appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1000">
 								<div class="col-lg-6">
-									<a href="/contactMe" class="btn btn-modern btn-dark mt-3">Get In Touch</a>
+									<a href="/mail/contactMe" class="btn btn-modern btn-dark mt-3">Get In Touch</a>
 									<a href="https://github.com/zepetto7065" target="_blank" class="btn btn-modern btn-primary mt-3">My github</a>
 									<a href="https://blog.naver.com/adioson" target="_blank" class="btn btn-modern btn-warning mt-3">My Blog</a>
 								</div>

@@ -47,17 +47,17 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		ModelMap modelMap = modelAndView.getModelMap();	
 		
 		String userType = (String) modelMap.get("userType");
-		boolean passMatch = (boolean) modelMap.get("passMatch");
 		
 		// zepetto 로그인
-		if(userType.equals("zepettoUser") && passMatch == true) {
+		if(userType.equals("zepettoUser")) {
 			logger.info("new zepettoworld login success");
 
 			MemberVO vo = (MemberVO) modelMap.get("user");
 			
 			httpSession.setAttribute("signedUser", vo);
 			httpSession.setAttribute("signedUserName", vo.getUserName());
-			//response.sendRedirect("/");
+			httpSession.setAttribute("signedUserAuth",vo.getAuthority());
+			System.out.println("sinedUserAuth ::: "+vo.getAuthority());
 
 		}else if(userType.equals("kakaoUser") || userType.equals("naverUser")) {	//kakao Oauth Login
 			logger.info("new Oauth login success");

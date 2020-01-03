@@ -210,17 +210,18 @@
 					
 					<div class="row">	
 					
-						<div class="col-lg-6" onclick="javascript:archiPopup();">
+						<div class="col-lg-6">
 							<div class="tabs" >
 								<ul class="nav nav-tabs">
 									<li class="nav-item active" style="margin-bottom:13px">
-										<span><b>Zepetto World System Architecture</b></span>
-										<img style="width:10%" src="${pageContext.request.contextPath}/resources/img/icons/icon_arc.png"></img>						
+										<span><b>Who is Zepetto?</b></span>
 									</li>
 								</ul>
 								<div class="tab-content">
-									<div id="popular" class="tab-pane active">
-										<img alt="architecture" style="width:100%;height:210px"  src="${pageContext.request.contextPath}/resources/img/architecture.PNG">
+									<div id="popular" class="tab-pane active" style="height:210px">
+										<a href="/overview">
+										<img alt="architecture" style="width:100%;height:210px" src="${pageContext.request.contextPath}/resources/img/smyoo_room.jpg">
+										</a>
 									</div>
 								</div>
 							</div>

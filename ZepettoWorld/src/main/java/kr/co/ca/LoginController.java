@@ -85,7 +85,6 @@ public class LoginController {
 		
 		model.addAttribute("user",result);
 		model.addAttribute("userType","zepettoUser");
-		model.addAttribute("passMatch",passMatch);
 
 	}
 	

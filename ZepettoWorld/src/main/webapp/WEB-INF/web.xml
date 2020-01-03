@@ -51,7 +51,7 @@
   
   
     <!-- Error -->
-	<error-page>
+<!-- 	<error-page>
 		<error-code>404</error-code>
 		<location>/WEB-INF/views/noTiles/view/error/noResource.jsp</location>
 	</error-page>
@@ -63,7 +63,7 @@
     
     <error-page>
   		<location>/WEB-INF/views/noTiles/view/error/default.jsp</location>
-    </error-page>
+    </error-page> -->
 	  
   
 </web-app>
