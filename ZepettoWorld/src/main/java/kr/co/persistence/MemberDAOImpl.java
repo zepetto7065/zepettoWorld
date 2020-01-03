@@ -75,7 +75,7 @@ public class MemberDAOImpl implements MemberDAO {
 	   
 	   
 	   boolean passMatch = passwordEncoder.matches(vo.getPassWord(), checkPassWord); //비밀번호 복호화
-	   
+	   System.out.println("passMatch ::: "+passMatch + "  checkPassWord ::: "+checkPassWord +" vo.getPassWord() ::: "+vo.getPassWord() );
 	   int flag = 2; //유효성 체크 플래그
 	   // 아이디와 비밀번호를 체크 후, 빈 값 체크
 	   try {

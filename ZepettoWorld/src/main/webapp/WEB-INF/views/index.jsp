@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 
 <html>
 	<head>
-		<jsp:include page="/WEB-INF/views/header.jsp" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <jsp:include page="/WEB-INF/views/header.jsp" />
+
 	</head>
 	<body>
 	
@@ -14,20 +18,6 @@
 
 
 				<div class="container pb-1">
-					
-				  <%--   <div id="slidebox">
-						<ul id="slider" style="width:70%">
-							<li>
-								<img src="${pageContext.request.contextPath}/resources/img/banner/banner_01.jpg" />
-							</li>
-							<li>
-								<img src="${pageContext.request.contextPath}/resources/img/banner/banner_02.jpg" />
-							</li>
-							<li>
-								<img src="${pageContext.request.contextPath}/resources/img/banner/banner_03.jpg" />
-							</li>
-						</ul>
-					</div> --%>
 						
 					<div class="row pt-4">
 						<div class="col">
@@ -54,54 +44,92 @@
  								</p>
 							</div>
 						</div>
-						<div class="col-lg-2 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="450" style="padding-top: 10px;">
-							<a href="/overview" class="btn btn-modern btn-primary mt-1">Who is zepetto?</a>
-						</div>
 					</div>
 					
 				</div>
-		
 				
-<%-- 				<section class="section section-default border-0 my-5 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="750">
-					<div class="container py-4">
-
-						<div class="row align-items-center">
-							<div class="col-md-6 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="1000">
-								<div class="nav-inside mb-0" data-plugin-options="{'items': 2, 'margin': 10, 'animateOut': 'fadeOut', 'autoplay': true, 'autoplayTimeout': 6000, 'loop': true}">
-									<div>
-										<img alt="" class="img-fluid" src="${pageContext.request.contextPath}/resources/img/smyoo_room.jpg">
+				<div class="container py-2">
+					
+					<div class="row">
+						
+						<!-- carousel area -->
+						<div class="col-lg-8">
+							  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+							    <!-- Indicators -->
+							    <ol class="carousel-indicators">
+							      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+							      <li data-target="#myCarousel" data-slide-to="1"></li>
+							      <li data-target="#myCarousel" data-slide-to="2"></li>
+							    </ol>
+							
+							    <!-- Wrapper for slides -->
+							    <div class="carousel-inner" style="height:175px">
+							      <div class="item active">
+							        <img src="${pageContext.request.contextPath}/resources/img/리니지광고.jpg" alt="banner_001" style="width:100%;">
+							      </div>
+							
+							      <div class="item">
+							        <img src="${pageContext.request.contextPath}/resources/img/쇼핑광고.jpg" alt="banner_002" style="width:100%;">
+							      </div>
+							    
+							      <div class="item">
+							        <img src="${pageContext.request.contextPath}/resources/img/할인광고.jpg" alt="banner_003" style="width:100%;">
+							      </div>
+							    </div>
+							
+							    <!-- Left and right controls -->
+							    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+							      <span class="glyphicon glyphicon-chevron-left"></span>
+							      <span class="sr-only">Previous</span>
+							    </a>
+							    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+							      <span class="glyphicon glyphicon-chevron-right"></span>
+							      <span class="sr-only">Next</span>
+							    </a>
+							  </div>
+						</div>
+						
+						
+						<!-- TeamRoom area -->
+						<div class="col-lg-4">
+							<div class="tabs" >
+								<div class="tab-content" style="border:1px solid rgba(0, 0, 0, 0.25);height:176px">
+									<div class="appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="450" style="width:285px;padding-top: 10px;">
+										<c:if test="${signedUser eq null}">
+										<div style="margin-left:15px">
+											<span>zepetto world에 로그인해 주세요.</span>
+											<a href="/login/login" class="btn btn-modern btn-primary mt-3" style="width:285px">Zepetto World Login</a>
+											<span  style="float:right;margin-top:12px"><a href="/member/join">회원가입</a></span>
+										</div>
+										</c:if>
+										<c:if test="${signedUser ne null}">
+										<div style="margin-left:15px">
+											<span>
+												<img alt="사진" src="${pageContext.request.contextPath}/resources/img/eskimo.png" style="width:30px">
+											</span>
+											<span>
+												<span>${signedUserName} 님 환영합니다!</span>
+												<div class="btn btn-modern mt-3" style="width:285px">오늘의 명언 - 일체유심조</div>
+												<span  style="float:right;margin-top:12px"><a href="/login/logout">Logout</a></span>
+											</span>
+										</div>
+										</c:if>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
-								<div class="overflow-hidden mb-2">
-									<h2 class="text-color-dark font-weight-normal text-5 mb-0 pt-0 mt-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="1200">Who <strong class="font-weight-extra-bold">are you?</strong></h2>
-								</div>
-								<p class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1400"> 학부 시절 C언어 수업을 통해 프로그래밍에 입문하였습니다.  <a href="javascript:music();">음악</a>을 좋아하고 만드는 것을 좋아합니다. 전공은 전기를 전공했지만 누구보다 코딩과 프로그래밍을 좋아했습니다. 학부 시절부터 Zepetto 라는 별명을 좋아했습니다. </p>
-								<p class="mb-0 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1600">시도하지 않으면 의미가 없다는 생각으로 , 모든 것은 마음 먹기에 달려있다는 '일체유심조'의 정신으로 임하는 사람이 되겠습니다. Zepetto World에 오신 것을 환영합니다!</p>
-							</div>
 						</div>
-
 					</div>
-				</section> --%>
+				</div>
 				
 				<div class="container py-2">
-
 					<div class="row">
-						<div class="col">
-							<h4>게시판</h4>
-						</div>
-					</div>
-					
-					<div class="row">
-
+							
 						<div class="col-lg-6">
 							<div class="tabs">
 								<ul class="nav nav-tabs">
 									<li class="nav-item active">
 										<a class="nav-link" href="/board/listall?boardType=a" data-toggle="tab">공지사항</a>
 									</li>
-
 								</ul>
 								<div class="tab-content">
 									<div id="popular" class="tab-pane active">
@@ -111,7 +139,7 @@
 							</div>
 						</div>
 					
-						<div class="col-lg-6">
+						<div class="col-lg-6" onclick="javascript:archiPopup();">
 							<div class="tabs" >
 								<ul class="nav nav-tabs">
 									<li class="nav-item active">
@@ -126,15 +154,35 @@
 								</div>
 							</div>
 						</div>
-				</div>
+					</div>
 				</div>
 				
 				<div class="container py-2">
-
-
+					
 					<div class="row">
-
-						<div class="col-lg-6">
+						<div class="col">
+						</div>
+					</div>
+					
+					<div class="row">	
+					
+						<div class="col-lg-6" onclick="javascript:archiPopup();">
+							<div class="tabs" >
+								<ul class="nav nav-tabs">
+									<li class="nav-item active" style="margin-bottom:13px">
+										<span><b>Zepetto World System Architecture</b></span>
+										<img style="width:10%" src="${pageContext.request.contextPath}/resources/img/icons/icon_arc.png"></img>						
+									</li>
+								</ul>
+								<div class="tab-content">
+									<div id="popular" class="tab-pane active">
+										<img alt="architecture" style="width:100%;height:210px"  src="${pageContext.request.contextPath}/resources/img/architecture.PNG">
+									</div>
+								</div>
+							</div>
+						</div>
+								
+						<div class="col-lg-6">		
 							<div class="tabs">
 								<ul class="nav nav-tabs">
 									<li class="nav-item active">
@@ -147,43 +195,43 @@
 										<iframe src="/board/listallPortlet?boardType=q" frameborder="0" scrolling="no" style="width:100%;height:210px"></iframe>
 									</div>
 								</div>
-							</div>
+							</div>						
 						</div>
+					</div>
 					
-						<div class="col-lg-6">
-							<div class="tabs" >
-								<ul class="nav nav-tabs">
-									<li class="nav-item active">
-										<a class="nav-link" href="/board/listall?boardType=d" data-toggle="tab">자료게시판</a>
-									</li>
-								</ul>
-								<div class="tab-content">
-									<div id="popular" class="tab-pane active">
-										<iframe src="/board/listallPortlet?boardType=d" frameborder="0" scrolling="no" style="width:100%;height:210px" ></iframe>
-									</div>
-
-								</div>
-							</div>
-						</div>
 				</div>
-				</div>
-				
+								
 				<div class="container py-2">
 					
 					<div class="row">
 						<div class="col">
-							<h4><a onclick="javascript:archiPopup();"><b>System Architecture</b> (클릭시 확대)</a></h4>
 						</div>
 					</div>
 					
-					<div class="row">				
-						<div class="col-lg-6">				
-							<img alt="architecture" style="width:100%" src="${pageContext.request.contextPath}/resources/img/architecture.PNG">
+					<div class="row">	
+					
+						<div class="col-lg-6" onclick="javascript:archiPopup();">
+							<div class="tabs" >
+								<ul class="nav nav-tabs">
+									<li class="nav-item active" style="margin-bottom:13px">
+										<span><b>Zepetto World System Architecture</b></span>
+										<img style="width:10%" src="${pageContext.request.contextPath}/resources/img/icons/icon_arc.png"></img>						
+									</li>
+								</ul>
+								<div class="tab-content">
+									<div id="popular" class="tab-pane active">
+										<img alt="architecture" style="width:100%;height:210px"  src="${pageContext.request.contextPath}/resources/img/architecture.PNG">
+									</div>
+								</div>
+							</div>
+						</div>
+								
+						<div class="col-lg-6">		
+							<iframe width="100%" height="315" src="https://www.youtube.com/embed/BOE8rR9uDz8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>		
 						</div>
 					</div>
 					
 				</div>
-				
 
 
 

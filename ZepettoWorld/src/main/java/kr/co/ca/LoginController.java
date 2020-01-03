@@ -78,7 +78,6 @@ public class LoginController {
 	//로그인 진행
 	@RequestMapping(value = "loginPost", method = RequestMethod.POST)
 	public void loginPost(MemberVO vo,Model model,HttpSession session) {
-			
 		MemberVO result =  memberService.loginUserInfo(vo); 
 		boolean passMatch = passwordEncoder.matches(vo.getPassWord(), result.getPassWord()); //비밀번호 복호화
 

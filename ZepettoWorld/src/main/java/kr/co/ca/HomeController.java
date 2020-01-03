@@ -45,7 +45,7 @@ public class HomeController {
 	
 	
 	/**
-	 * @MethodName : MemberController
+	 * @MethodName : HomeController
 	 * @author : 유상문
 	 * @since : 2019. 8. 26.
 	 * @see : 아이디 중복 체크 팝업
@@ -55,7 +55,17 @@ public class HomeController {
 		return "/popup/idCheckForm";
 	}
 	
-
+	/**
+	 * @MethodName : HomeController
+	 * @author : 유상문
+	 * @since : 2020. 01. 03.
+	 * @see : 로그인 팀룸 메인화면
+	 */
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login() {
+		return "/portlet/login";
+	}
+	
 	
 	
 	/**

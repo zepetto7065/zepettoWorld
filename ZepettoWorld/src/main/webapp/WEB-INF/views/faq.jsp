@@ -51,7 +51,7 @@
 									제작하는 것을 완성으로 두며 저의 역량을 발휘하고 싶습니다.</p>
 							</section>
 
-							<section class="toggle">
+							<section class="toggle toggle-primary">
 								<label>경청 , 사람의 마음을 얻는 큰 지혜</label>
 								<p>저의 성격 중 가장 큰 장점을 경청하는 자세입니다. 군 복무 중의 일이 였습니다. 버스 운전병으로
 									복무하며 상병이 되었을 즈음, 바로 직속 후임병이 뜀 걸음과 체력 단련 시 힘들어하는 모습이 보여 몸 상태가 안
@@ -63,7 +63,7 @@
 									것에 시간이 걸리곤 하지만 빠른 선택을 하는 법도 배워나가고 있습니다.</p>
 							</section>
 
-							<section class="toggle">
+							<section class="toggle toggle-primary">
 								<label>느릴지라도 바른 방향으로</label>
 								<p>학부 시절 ‘C언어’와 자바, 안드로이드 공부를 하며 프로그래밍의 기초를 다졌으며 졸업 후 ,
 									‘통합심사 과정 훈련, Java, Spring Framework, Oracle DB를 통한 웹 프로그래머 개발
@@ -77,7 +77,7 @@
 									토대로 더 완성된 개발자로서 업무를 이행하는 사원임을 보여드리겠습니다.</p>
 							</section>
 
-							<section class="toggle">
+							<section class="toggle toggle-primary">
 								<label>입사 후 포부</label>
 								<p>3년 내에 안정되고 완성된 개발자가 되기 위해 다음과 같은 노력을 하겠습니다. 첫째, 웃음으로 응대하고
 									인사하는 신입 사원이 되겠습니다. 겸손한 자세로 준비하고 실천하며 옳바른 가치관을 가진 사원이 되도록 하겠습니다.
