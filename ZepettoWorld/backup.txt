@@ -33,11 +33,11 @@
 		where userid=#{userid}
 	</update>
 
-  <select id="selectById" resultType="kr.co.domain.MemberVO"> 
+  <select id="selectById" resultType="MemberVO">
   	select * from tbl_member where userid = #{userid}
   </select>
   
-  <select id="selectAll" resultType="kr.co.domain.MemberVO"> 
+  <select id="selectAll" resultType="MemberVO">
   	select * from tbl_member
   </select>
   

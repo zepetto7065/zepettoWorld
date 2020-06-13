@@ -61,9 +61,9 @@
     </beans:bean>
 
 	<!-- NaverLoginBO Class에 대한 Bean 설정 -->
-	<beans:bean id="naverLoginBO" class="kr.co.bo.NaverLoginBO" />
+	<beans:bean id="naverLoginBO" class="com.zepetto.world.bo.NaverLoginBO" />
 
-	<beans:bean id="sampleInterceptor" class="kr.co.bo.SampleInterceptor" />
+	<beans:bean id="sampleInterceptor" class="com.zepetto.world.bo.SampleInterceptor" />
 	
 	<mvc:interceptors>
 		<mvc:interceptor>
@@ -73,7 +73,7 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 
-	<beans:bean id="LoginInterceptor" class="kr.co.bo.LoginInterceptor" />
+	<beans:bean id="LoginInterceptor" class="com.zepetto.world.bo.LoginInterceptor" />
 	
 	<mvc:interceptors>
 		<mvc:interceptor>
