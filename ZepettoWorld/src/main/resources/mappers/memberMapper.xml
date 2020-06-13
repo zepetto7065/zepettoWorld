@@ -5,7 +5,7 @@
 
 <mapper namespace="kr.co.ca.MemberMapper">
 
-	<resultMap type="kr.co.domain.MemberVO" id="memberResult">
+	<resultMap type="com.zepetto.world.domain.MemberVO" id="memberResult">
 		<result column="USER_ID" property="userId" />
 		<result column="PASSWORD" property="passWord" />
 		<result column="USER_NAME" property="userName" />

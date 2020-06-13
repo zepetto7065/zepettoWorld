@@ -5,13 +5,13 @@
 
 <mapper namespace="kr.co.ca.OrgMapper">
 
-	<resultMap type="kr.co.domain.OrgMaker" id="orgResult">
+	<resultMap type="com.zepetto.world.domain.OrgMaker" id="orgResult">
 		<result column="ID" property="id" />
 		<result column="NAME" property="name" />
 		<result column="PID" property="pid" />
 	</resultMap>
 	
-	<resultMap type="kr.co.domain.MemberVO" id="memberResult">
+	<resultMap type="com.zepetto.world.domain.MemberVO" id="memberResult">
 		<result column="USER_ID" property="userId" />
 		<result column="PASSWORD" property="passWord" />
 		<result column="USER_NAME" property="userName" />

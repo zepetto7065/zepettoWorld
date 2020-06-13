@@ -5,7 +5,7 @@
 
 <mapper namespace="kr.co.ca.BoardMapper">
 
-	<resultMap type="kr.co.domain.BoardVO" id="boardResult">
+	<resultMap type="com.zepetto.world.domain.BoardVO" id="boardResult">
 		<result column="BNO" property="bno" />
 		<result column="TITLE" property="title" />
 		<result column="USER_ID" property="userId" />

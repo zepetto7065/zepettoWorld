@@ -5,7 +5,7 @@
 
 <mapper namespace="kr.co.ca.ReplyMapper">
 
-	<resultMap type="kr.co.domain.ReplyVO" id="replyResult">
+	<resultMap type="com.zepetto.world.domain.ReplyVO" id="replyResult">
 		<result column="BNO" property="bno" />
 		<result column="REPLY_NO" property="replyNo" />
 		<result column="REPLY_TEXT" property="replyText" />
@@ -14,7 +14,7 @@
 		<result column="UPDATE_DATE" property="updateDate" />
 	</resultMap>
 	
-	<resultMap type="kr.co.domain.BoardVO" id="boardResult">
+	<resultMap type="com.zepetto.world.domain.BoardVO" id="boardResult">
 		<result column="BNO" property="bno" />
 		<result column="TITLE" property="title" />
 		<result column="USER_ID" property="userId" />
