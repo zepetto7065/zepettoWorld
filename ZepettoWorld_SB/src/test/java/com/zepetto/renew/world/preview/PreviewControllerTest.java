@@ -1,4 +1,4 @@
-package com.zepetto.renew.admin.preview;
+package com.zepetto.renew.world.preview;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

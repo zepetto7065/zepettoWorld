@@ -9,3 +9,7 @@ spring:
   devtools:
     livereload:
       enabled: true
+  freemarker:
+    cache: false
+server:
+  port: 8080

@@ -1,4 +1,4 @@
-package com.zepetto.renew.admin;
+package com.zepetto.renew.world;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;

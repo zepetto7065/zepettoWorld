@@ -1,4 +1,4 @@
-package com.zepetto.renew.admin.Board;
+package com.zepetto.renew.world.Board;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
