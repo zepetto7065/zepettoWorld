@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -22,12 +23,12 @@ class BoardControllerTest {
     @Test
     void listTest() throws Exception {
         ResultActions resultActions = this.mockMvc.perform(
-                post("/")
+                get("/board/list")
         );
 
         resultActions.andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(view().name("/board/list"));
+                .andExpect(view().name("board/list"));
     }
 
 }
