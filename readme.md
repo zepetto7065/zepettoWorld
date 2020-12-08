@@ -67,4 +67,7 @@ http://zepetto7065.cafe24.com/
     
  다음과 같은 방식으로 해당 서비스 서버와 HTTP 서버 통신으로 해당 정보를 불러옵니다.
  
- 
+ ## Achitecture ##
+ <img width="618" alt="스크린샷 2020-12-09 오전 1 40 24" src="https://user-images.githubusercontent.com/44112221/101514491-a7674880-39c0-11eb-97d2-9ba20174d1e6.png">
+
+zepetto world System Architecture 입니다.
